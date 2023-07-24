@@ -1,0 +1,53 @@
+Script is extension of HTML script tag.
+
+It enable to developers to set loading priority of third-party script anywhere in the app.
+
+Why ???
+To increase or add extra functionality we have to use third-party libraries.
+Some scripts are heavy to load , can drag down user-experience if script are 
+render-block and can delay page content loading.
+
+So Script component enable developers to place script as per wish to prevent decreasing in perforance, 
+while taking care of optimization of loading strategy
+
+Strategy
+This property enbale to specify when to load the script.
+Scipt load with any of below three strategy
+
+beforeInteractive :- 
+ - In this script is injected into initial HTML by server and run before JS executed.
+ - Used if script is of critical-importance and have to run before the page is interactive.
+  e.g Bot Detectors,Cookie-Consent managers
+afterInteractive:
+ -  scripts are loaded or injected Client-Side an run after Next.js hydration of page.
+ - used in case when script can be loaded or executed afetr page become interactive
+  e.g. Tag Managers,Analytics    
+lazyOnLoad
+ - Loaded when all resouces have been fetched/loaded.
+ - In other words during idle times
+ - Used for Script of low priority & does not require to load before or after page become interactive.
+
+
+INLINE SCRIPT
+ - Script notloaded from external file
+ - Written by placing JS within curly brace then whithin pair of backticks
+ <Script id="show-banner" strategy="lazyOnload">
+  {`document.getElementById('banner').classList.remove('hidden')`}
+</Script>
+ - Only afterInteractive or lazyOnLoad strategy are allowd in inline-script.
+ - Bcoz beforeInteractive loading strategy injects the contents of an external scirpt into initial HTML 
+   response.
+ - Inline-scirpt by default do this/beforeInteractive.
+ - id :- Attribute is must to enable Next.js to track and optimize script.
+
+
+onLoad 
+ - Some third-party script require user to execute JS code after the script has finished loading,
+ - If script loaded with afterInteractive or beforeInteractive strategy, using onLoad we can execute JS code 
+   after loaded.
+
+
+
+Additional Attributes 
+Some Additional Attribute can be used which are not needed by Script Component, 
+these will be forwarded to final optimized script element that will be outputted to page

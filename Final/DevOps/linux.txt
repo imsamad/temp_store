@@ -1,0 +1,263 @@
+============ 01 ===============	
+man ls => manual
+cat fileName 
+more fileName 
+less fileName (:q)
+
+============ 02 Sudo===============
+sudo 							=> Give u root privileges
+groups => Groups of which u r part of 
+groups xyz => Groups of which xyz part of 
+id -gn => Ur Primary group
+cat /etc/passwd => All Users
+cat /etc/group => All Groups
+sudo vipw
+sudo vigr
+
+sudo adduser userName 	=> Add User
+sudo userdel user_name; => Delete user
+sudo passwd xyz    		=> Change xyz pwd
+
+sudo passwd root || sudo passwd    		=> Change root pwd
+
+sudo groupadd gr_name;
+sudo usermod -aG groupName userName    =>    Add User to Group
+sudo groupdel gr_name;
+sudo deluser username gr_name;
+
+su - userName  			=> Login As User 
+su - || sudo su			=> Login As Root
+sudo -k 						=> Delete session
+sudo -i        			=> Create session As User
+
+Modify session duration	
+	cat /etc/sudoers
+	sudo visudo
+	- append at env_reset,timestamp_timeout=n,-1=>NeverTimeOut
+LogIn Forever
+	sudo visudo
+	append userName ALL=(ALL) NOPASSWD:ALL
+Delete Root user pwd
+	sudo passwd -l root
+
+============ 03 VIM ===============
+Insert Mode 
+i
+a
+o
+
+Traversing
+	w => Forward by word
+	b => Backward by word
+	$ => End of line
+	0 => Start of line
+	shift+g => EOF
+	n+shift + g => nth line
+	shift + H => High
+	shift + M => Middle
+	shift + L => Low
+	ctrl + f => Next screen
+	ctrl + u =>Forwrd Half Scrren
+	ctrl + d =>Backwrd Half Scrren
+
+Delete 
+	dw => Delete word
+	d^ => cursor to start of line
+	d$ => cursor to end of line
+	dd => delete line
+	dg => line to start O line
+	dgg => from Line to start of file
+
+Copy/Paste
+	yy => Copy
+	p => Paste one line below
+	shift + p =>Paste one line above
+============05 User,Groups & Permissions===============
+ => Enable ssh root login
+	vim /etc/ssh/sshd_config              
+	systemctl restart sshd
+	PermitRootLogin yes
+sudo cat /etc/shadow 						=> List out all user's pwd
+sudo adduser newUserName					=> Add user 
+sudo groupadd newGroupName					=> Add group 
+sudo passwd										=> Change crt. user password 
+sudo passwd userName							=> Change userName password 
+sudo passwd root								=> Set super user pwd
+sudo userdel userName						=> Delete user
+sudo deluser userName groupName			=> Remove user from group
+groups											=> Crt user part of groups
+groups userName								=> userName part of groups
+sudo usermod -aG groupName1,groupName2,...,groupName-nth userName1
+id -gn											=> Primary Group 
+su - === sudo su								=> Login a ssuper user
+sudo passwd -l root							=> Delete root user pwd
+sudo /etc/passwd								=> Spit out all users	
+sudo /etc/group = getent group			=> Spit out all groups
+nano /etc/passwd === sudo vipw			=> Run config check on modify
+nano /etc/group === sudo vigr				=> Run config check on modify
+ 
+
+
+==============07 Cron =============
+crontab -l
+crontab -e
+sudo crontab -e
+
+==============08 Pipes =============
+0 => input
+1 => output
+2 => error
+
+cat myFile.txt 1>success.txt 2>error.txt
+
+All in 
+cat myFile.txt 1>success.txt 2>&1
+
+ls -la | less
+ls -la | more
+ls -la | grep PATTERN
+cat myFile.txt | grep PATTERN
+pgrep p_name e.g. pgrep firefox === pidof firefox
+pkill p_name e.g. pkill firefox
+==============09 Manage Process =============
+sleep 300 
+jobs
+fg/bg p_id
+ps => Spit out process initiated by crt. user
+top
+kill -l
+kill -[sigNo] p_id
+
+==============11 Packages =============
+dpkg -l => List all packages
+dpkg -l pckgName => List details about single package
+
+dpkg -s package_name => Package status
+
+wget pack_link
+
+dpkg --info package_name
+dpkg -i package_name    =>Install
+
+dpkg -r package_name    =>Install
+dpkg -P package_name    =>Install
+
+cat /etc/apt/sources.list => Packages Repo details
+
+apt update && apt upgrade -y && apt install -f => Fix broken dependecy
+
+apt-cache search package_name
+apt-cache policy package_name => Avail version
+
+Remove packages
+	apt remove/purge package_name
+
+Remove dependent packages
+	apt autoremove package_name
+	plus config...
+	apt autoremove --purge package_name
+apt-get show package_name
+
+
+apt add-apt-repository 'deb http://link.com...... bionic main/restricted'
+
+Repo = 
+1.)Main (Free & open-source plus secure n developed by ubuntu devlopers)
+2.)Universe (Free- Open Souce(Not guarante regular security updates) 
+3.)Multi-verse (Paid by default not available in ubuntu)
+4.)Restricted (Paid software by ubuntu) 
+5.)Partner (Paid/propietry software for ubuntu partners) 
+
+============14 systemctl ===============
+During boot after kernal finshed loading, then systemd is loading 
+Systemd:-
+	Load own config.
+	Check its boot goal.
+	Determine dependencies of target goal recursively,
+	Activate dependencies and boot goal.
+
+dot Services unit :-
+	- Describe how manage service and application on server  ,how to start stop service and under which    circumstances.
+dot Socket unit :-
+	- Have dot Service file asociated with it.
+timing unit :-
+	-
+mount unit :-  
+	- /etc/
+ctl :- Cnetral Managemnt Tool
+	:- How manage service and check status
+
+
+systemctl list-units					=> Avalaible active system units
+systemctl list-units --all			=> Avalaible system units
+systemctl list-unit-files
+/lib/systemd/system
+
+systemctl start/stop/restart/reload/status
+To start on boot
+	systemctl enable appname
+	systemctl disable appname
+	systemctl is-enabled appname
+
+Logs of servcies
+	journalctl
+	journalctl --since "[y]-[m]-[d] [h]-[m]-[s]"
+	journalctl --since "20-10-22 20:04:02"
+	journalctl --until "[y]-[m]-[d] [h]-[m]-[s]"
+	journalctl --until "20-10-22 20:04:02"
+	journalctl --since "20-10-22 20:04:02" --until "20-10-22 22:04:02"
+Of specific service
+	journalctl -u apache2
+Of process
+	journalctl _PID=x.x.x.x
+
+============15 Env ===============
+bash => - Create a brand new instance of shell
+		  - It propogate env not shell variable
+printenv === env
+printenv | grep ENV_VAR === env | grep ENV_VAR === echo $ENV_VAR
+set => Spit out all shell variable
+NEW_SHELL_VAR='newShellVarName'
+set VAR_NAME='varName'
+set | grep VAR_NAME === echo $VAR_NAME
+export VAR_NAME    => convert shell var into env var
+export -n VAR_NAME    => Reverse of above
+export NEW_ENV_VAR='newEnvVar'
+unset ENV_VAR
+unset SHELL_VAR
+
+Login ENV searching process :- 
+/etc/profile = >Sytem wide
+~/.profile => user accessible
+~/.bash_profile
+~/.bash_login
+
+NON-Lognin shell
+/etc/bash.bashrc => System wide
+~/.bashrc	
+
+/etc/environment
+
+Set ENV var on non-login shell that will copied over to login
+
+============16 PATH ===============
+
+============18 SSH ===============
+
+sudo vi /etc/ssh/sshd_config
+sudo systemctl restart sshd
+
+ssh-keygen
+ssh-copy-id usrName@ipadress
+ssh-add
+Go with it :- ssh usrName@ipadress
+
+
+================= Enable Root LogIn =====================
+
+sudo vim /etc/gdm3/custom.conf  << AllowRoot
+sudo vi /etc/pam.d/gdm-password
+
+
+================== Set Env from file =======================
+echo set -o allexport; source /root/.env; set +o allexport; >> /root/.profile

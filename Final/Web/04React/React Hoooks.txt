@@ -1,0 +1,30 @@
+﻿			HOOKS
+useState:-
+    • Let u add state in functional component.
+    • It can be var,object,array unlike only type of object in class.
+useEffect:-
+    • Lets u perform side-effect in functional components.
+    • Close replacement of 
+    • componentDidUpdate
+    • componentDidMount
+    • componentWillUnmount. 
+    • withCleanUp :- return 
+useContext:-
+It provides a way to pass down data through components tree with drilling down the props manually at every level.
+useReducer:-
+    • Alternative of useReducer.
+    • Even useState is built using useReducer.
+    • useReducer(reducer,initValue)===arr.reduce(reducer,initValue)
+    • Parameter for arr.reduce=singleVal=reducer(acc,itemValue)
+    • Para for useReducer's reduer newState=reducer(currState,action)
+useCallback
+What
+It is a hook that return a memoised version of callback function that only changes if one of the dependencies has changed.
+Why
+It is used when passing callbacks/fun or obj to optimized child components that rely on refrence equality to prevent unnecessary renders.
+
+useMemo
+To cache a function useCallback ,to cache result of function use useMemo.
+
+
+		

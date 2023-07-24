@@ -1,0 +1,44 @@
+﻿C:-
+· It s a high-level,structured & machine-independent language( no need to think about hardware on which the program to be implement at the end).
+· ALGOL(1960):-Root of all modern language,give concept of structured programming language.
+· Invented in 1972 by Dennis Ritchie in Bell Lab.
+· UNIX:-Most popular Network OS, heart of Internet data superhighway.
+· C was confined to academic environment, but later ,after the evident of compiler its popularrity rockets in commercial enviorment.
+· 1970:-After book authorise by Dennis Ritchie & Brian Kernigham ,it become more popular and later came to know as " K&R C " language.This rapid growth led to development of different versions of C which were similiar but incompatible ,which create problem for developers. Thats why 
+· 1983 :-ANSI appointed technical team to define a standard for C
+OBJECT CODE:-In computing, object code or object module is the product of a compiler.
+ In a general sense object code is a sequence of statements or instructions in a computer language,[2] usually a machine code language
+ 
+COMPILATION
+· It is the process of converting source code into object code.
+· It is done w/ compiler.
+· Step 
+· 1.)Check for syntatical error/structured error
+· Pre-processing, Compiling, Assembling, and Linking
+
+------------------------------------------------------------------------------------------------------------------------
+
+Variables in C
+· A variable is a name of the memory location. 
+· It is used to store data. 
+· 	Its value can be changed, and it can be reused many times.
+
+
+printf():-It is formatted output function.It means it requires formatted string to print anything.Format string always start with % sign & it specify the format of the value that is to be printed.
+scanf():-It is formatted,console,input function.
+Console:-Combination of keyboard & monitor.
+Both printf() & scanf() are defined in std.io header file.
+		08 .)Structure of C program:-
+1. Preprocessor:-The instruction or command perform their task pre-compilaion of source code.
+Start with # symbol
+e.g. #include:-It include content of header file in program.
+	To use libray fun. we have to include that respected header 	file at the top.e.g.To use library fun like printf() & scanf() we have to include stdio.h file 
+1. Comments:-Used for documentation purpose,ignored by compilers.Two type in C a.) Single Line  // b.)Multiple Line /* */
+2. User Defined Functions
+3. Global Variables:-var declared outside of main, can be accessed in any functions.
+4. void main(){}   OR int main() { return 0; }
+	main():-It is pre-defined,entry point of our for execution of 	our code.
+	A C program can have atmost one main fun. 	
+	A C program w/o main can be compiled but can't be 	executed.
+
+

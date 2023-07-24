@@ -1,0 +1,37 @@
+﻿
+When a JavaScript engine executes a script, it creates execution contexts. Each execution context has two phases: the creation phase and the execution phase.
+The creation phase:-During this phase JS engine create a Global Execution Context
+	In GEC,it performs the following tasks.
+    1. Creation of Global object i.e. window in browser ,Global in Node.js
+    2. Create a this,which refers to global object.
+    3. Set up a memory heap to store variables and fun refrences.
+    4. Store the var and functions decalartion in memory heap and initial values as undefined.
+After creation phase it moves to execution phase
+Execution Phase:-In this phase, code is executed line by line.values is assigned to variables and function call is executed.
+Variables would be assigned values, and for every    function call a new Function execution context is created.
+FEC:-Context cretaed by JS engine whenever it find function call.
+	If the code is executed in strict mode this value will be undefined otherwise window
+	It creates the arguments objects that contains refrences to all the parameters passed into that function.
+It also has two phase 1.) Creation Phase 2.) Execution Phase.
+
+
+Call Stack:-
+    • To keep track of all the execution context JS uses a data structures called Call Stack.
+    • The call stack works based on the LIFO principle i.e., last-in-first-out.
+    • To execute a script JSE create Global Execution Ctx ,push it on the top stack ,when FEC is created it    will be push to top and pop it off the stack on function execution completion.
+
+Hoisting:-
+    • During creation phase of execution context ,the variables are moved to top the of    code ,this feature is called HOISTING.
+    • Variables with var are hoisted and initialised with undefined.
+    • Variables with let are hoisted but not initialised
+    • Function expressions and arrow functions are not hoisted.
+ Scopes:-It determined the visibility and accessibility of a variable.
+Scope has three scopes 1.)Global 2.) Local 3.) Block 4.) Scope Chain
+
+UNDEFINED:-Primitive data type whose value is only undefined.
+    • Accessing unintialised variables.
+    • Accessing non-existing property obj 
+    • Accessing out-of-bound array
+    • A fun return nothing, with return but w/o expression -> return undefined
+    • Not passing valid args in function those args will be undefined, as in Function Execution Context.
+

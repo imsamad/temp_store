@@ -1,0 +1,24 @@
+insert
+delete
+liner search (Transposition,MoveAtHead)
+Binary search 
+Reverse
+
+shift
+isSorted
+merging
+
+set(union,intersection,differnec)
+
+missing element
+    - sum
+    - multiple(duplicate)
+    - hashing
+duplicate
+    - loop
+    - hashing
+    - unsorted
+Pair of elemenmts
+    - unsorted
+    - sorted
+Min&Max in one go.

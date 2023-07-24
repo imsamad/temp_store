@@ -1,0 +1,27 @@
+Prerequisite :-
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
+
+
+Intro :-
+ ~ Declarative   
+   - Allow to design simple encapsulated UI components for each state in App.
+   - Also update the only corresponding UI compo when data/state change.
+ ~ Compo-Based
+   - Then compose those Simple compo to make complex UIs.
+ ~ Flexible
+  - By using react-library open-source.
+ ~ Coupled
+  - Inherently couled UI parts with corresponding Business logic.(It is the custom rules or algorithms that handle the exchange of information between a database and user interface)
+------------
+JSX :- 
+ ~ JS extension provides a way to structure component rendering using syntax familiar to many developers.It is similar in appearance to HTML.
+ ~ JSX Prevents Injection Attacks (
+    https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-in-html
+ )
+
+----------------
+Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes care of updating the DOM to match the React elements.
+
+Key:- Uniquely identify elements among its siblings
+Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity:
+

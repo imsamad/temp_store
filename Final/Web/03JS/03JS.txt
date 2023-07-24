@@ -1,0 +1,622 @@
+﻿var y=2;
+var x=()=>{
+    console.log(y) =>undefiend
+    var y=1;
+}
+x();
+Computer Program :- List of instruction to be executed by computer.
+Instruction :- In PL these instruction are called statements.
+statements consist of keyword,value,expression , operator.
+Simicolon:- Is used at the end of executable statements.
+If any statements length increased by 80 char then as good code 
+practice ,it is better to break the line the best place to break the 
+line is after Operator.
+e.g. 
+    document.getElementById("demo").innerHTML =
+    "Hello Dolly!";
+
+JS events:-
+ - HTML events are "things" that happen to HTML elements.
+ - When JavaScript is used in HTML pages, JavaScript can "react" on 
+   these events.
+ - HTML event can be sth the browser do,or sth user do.
+ - e.g. HTML web page finished loadinhg.
+        Input value change
+        Button click
+<button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button>
+<button onclick="this.innerHTML = Date()">The time is?</button>
+ <button onclick="displayDate()">The time is?</button> 
+
+String :- Are for storing and manipulating text.
+Backslash Escape Character:- JS string is written within double quotes ,so any quote within string will be 
+misunderstood by JS ,and will chopped between those ,to avoid this problem use 
+Backslash escape character
+let str1="XYZ"
+let str2=new String("XYZ)
+str1 == str2 ==> true
+str1 === str2 ==> false
+
+Extract Substring
+slice(s,e)  
+substring(start,end) =>Not -ve
+substr(start,length) => -ve accepted
+
+coocat =>
+- xyz.concat(" ","xyz")  => XYZxyz
+- JS string cannot be modified but can be replaced with new string.
+- String are immutable,string cannot be changed,only replaced.
+
+search vs indexOf
+search cannot take start searching index.
+indexOf cannot take strong RegEx.
+
+Template Literal /Template strings /String Template /Back-Tick syntax
+ - Use back-ticks rather quotes
+https://www.w3schools.com/jsref/jsref_obj_string.asp
+
+Numbers 
+    JS numbers are always 64 bits floating point numbers.
+    0-51 => value
+    52-62 => EXponents
+    63 => sign
+
+  Adding vs Concatenated
+
+  LHS 
+  x=10;y20;z="30"
+  x+y+z=3030  
+
+"5"+5=> "55"
+"5"/5=> 1
+"5"*5=> 25
+"5"+5=> "55"
+
+typeof NaN === Number
+
+valueOf => It is used internally in JS to convert Number Object to primitive value,so there is 
+           no any reason to use that.
+
+All JavaScript data types have a valueOf() and a toString() method.
+
+
+Array:-
+Object vs Array :- When element access by string use object ,when some to access using number use array.
+Determine.
+    Array.isArray(myArr)
+    myArr instanceof Array
+
+pop/shift
+push/unshift
+splicing(pos,numOfElemDeleted,"valOne","valTwo",....)
+    fruits=["Banana", "Orange", "Apple", "Mango"]
+    fruits.splice(2, 2, "Lemon", "Kiwi")
+    AS Delete
+    fruits.splice(0, 1) === delete fruits[0]
+
+delete => leaves undefined holes
+concat 
+ newArr=arr1.concat(arr2,arr3,...)
+slice(start,indexNotIncldue) => Slice out a new array 
+entries => 
+['one','two','three'].entries() =>
+[0,'one']
+[0,'two']
+[0,'three'] 
+
+ITERATION
+forEach
+map
+reduce
+reduceRight
+every
+some
+find
+firstIndex
+lastIndexOf
+includes
+from Array.from('ABCDEFGH)  ==> [A,B,C,D,E,F,G,H]
+arr,keys()
+
+filter => return new array
+
+
+Math = object allows you to perform mathematical tasks on numbers.
+Unlike other objects, the Math object has no constructor.
+The Math object is static object.
+All methods and properties can be used without creating a Math object first.
+min(included),max(excluded)
+function getRndInteger(min=1, max=100) {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
+min(incldue),max(included)
+function getRndInteger(min=1, max=100) {
+  return Math.floor(Math.random() * (max - min+1) ) + min;
+}
+
+ITERABLES:-
+Can be iterated over with for..of loops.
+Iterating means looping over a Sequence of elements.
+
+for(x of "string"){...}
+for(x of ['a','b']){...}
+
+SETS :- Collection of uniques values.
+add,delete,has,forEach,values.
+
+MAP :-
+ - hold key-value pairs where key can be any d_type.
+ - It remember the original insertion order of keys.
+ - set,get,delete,has,forEach,entries
+
+ Creation 
+ - Pass an array , new Map([....])
+ - Create a Map use Set
+typeof
+ Primitive types of data:- 
+    string 
+    number
+    boolean
+    undefined  
+2 dtype that cannot contain values:-
+    null 
+    undefined 
+5 different types of dtype that can contain values:-
+    string
+    number 
+    boolean
+    object
+    function
+6 types of objects 
+    Object
+    Date
+    Array 
+    String
+    Number
+    Boolean
+typeof function (){} => funtion
+
+The Data Type of typeof
+ - typeof operator is not variableit is a operator(+,-,*,/)
+ - Operators does not have any data type.
+ - But typeof operator always returns 
+   a string (contain type of operands(typeof operands))
+The constructor Property
+ - The constructor property returns the constructor 
+    "John".constructor                // Returns function String()  {[native code]}
+    (3.14).constructor                // Returns function Number()  {[native code]}
+    false.constructor                 // Returns function Boolean() {[native code]}
+    [1,2,3,4].constructor             // Returns function Array()   {[native code]}
+    {name:'John',age:34}.constructor  // Returns function Object()  {[native code]}
+    new Date().constructor            // Returns function Date()    {[native code]}
+    function () {}.constructor        // Returns function Function(){[native code]} 
+function isArray(myArray) {
+  return myArray.constructor.toString().indexOf("Array") > -1;
+}
+function isArray(myArray) {
+  return myArray.constructor === Array;
+}
+
+typeof undefined           // undefined
+typeof null                // object
+
+null === undefined         // false
+null == undefined          // true
+
+
+MISTAKES
+let x = 0.1;
+let y = 0.2;
+let z = x + y => 0.30000000000000004
+let z = (x * 10 + y * 10) / 10;
+
+2.1)Syntax 
+· Identifiers :- Name of class,var,function, fun parameter
+· Include a-z|A-Z|_|0-9|$ | ext ASCII | Unicode too.
+· Semicolon:- To Make code read-able , can help to compress & combine JS code in production environment to remove 
+· extra space and save bandwith
+· Expression :- Piece of code that evaluate to any value.
+2.2) Variables
+ They are loosely types can hold any type of datatype.
+ Named placeholders of values.
+ 
+ Undefined:-Declared but Not initialise.  vs Undeclared :- Not declared i.e. not exist
+
+Scope :- All variables exist within a scope that determines the lifetime of the variables and 
+    which part of the code can access them.
+
+TYPES OF SCOPE:-
+JavaScript mainly has global and function scopes. ES6 introduced a new scope called block scope.
+				
+var declare inside fun , added the var to function scope.
+var outside the fun added that var in global scope
+
+Scope shadowing :-
+If a var is declare and defiend inside a fun which was also decalre outside of fun with 
+same name ,then global var will shadowed cannot be accessed inside fun till local var exist.
+
+While executing a script engine goes through two phases:-
+1.)Parsing/Hoisting:- Move global var to top of file, or top of fun if variables are 
+declared in fun.
+2.)Executing
+
+The JavaScript engine moves only the declaration of the variables to the top. However, 
+it keeps the initial assignment of the variable remains intact.
+In case of let const , they are not assigned,but var with undefined.
+2.3) DataType
+· Six Type of DataType:-
+o 1.)undefined
+o 2.)null:- empty object pointer
+o 3.)string
+o 4.)number
+o 5.)boolean
+o 6.)symbol
+· JS is dynamic language,means var is not asociated with any type of data type , but its 
+ values does.
+· NaN != NaN
+· String:- Sequence of zero or more characters.
+o Begins with and ends with single quote or double quote.
+	 Strings are immutable unlike objects
+				2.4)Number
+	var temp=new Number(15)
+	console.log(temp.valueOf());
+	typeof temp===Object
+					3.1)Unary Operators
+Uniary are simplest operator, work on single operand.
++, -,  ++, --
+let a = 10;
+a = +a; // 10
+a = -a; // -10 
+let s = '10';
+console.log(+s); // 10
+let f = false,
+    t = true;
+console.log(+f); // 0
+console.log(+t); // 1
+			3.2)Logical Operators
+Three type of Logical operators
+NOT (!)  2.)OR ( || ) 3.) AND ( && )
+!’’ == true
+!NaN == false
+Double Negation (!!)
+Use twice Negate operator to convert a value to its real boolean value.
+		3.3) Assignment Operator
+a=a+b == a+=b
+a=a-b==a-=b
+a=a*b === a*=b
+a=a | b === a |=b
+a=a & b === a &=b
+
+Strict equal
+
+			7.1)Function:-Intro
+Arguments:- Object can be accesesed inside fun ,which behave like array though not instance of array.
+Function Hoisting :- Allow to call function before function declaration.
+	Moving fun dec  at the top of code.
+
+			7.2)Function:– First–class
+Means function be stored as value , an be passed as argument in fun and can be return as function from another function. In other word , can be treated as value.
+			
+7.3)Function:– Anonymous Function
+Function without name .
+No name between function keyword and open ‘(‘
+let show = function () {
+    console.log('Anonymous function'); }; show();
+7.4)Function – IIFE(Immediately Invoked Fun Expression)
+A Function defined as expression and called immediately.
+When a var and func are declared in globally , both will be added to global object means pollute 
+the global object.
+One way to prevent this pollution of global onject is to use IIFE.
+IIFE with semicolon (;):- When concatenating js code of two file having two IIFE , into single 
+file may be by using code bundler,without semi-colon it may render syntax  error.
+const calculator = (function () {
+    function add(a, b) {
+        return a + b;
+    }
+
+    function multiply(a, b) {
+        return a * b;
+    }
+    return {
+        add: add,
+        multiply: multiply
+    }
+})();
+
+7.5)Callback
+The function passed as argument into other function.to call later.
+
+
+OBJECT:-
+Unorder collection of key-pair.Each key-pair is called property.
+Two ways to access obj properties
+a.)Dot Notation b.)array like
+
+
+JavaScript Object Properties
+
+1.)Data properties
+
+To define characteristics of properties of object via internal attributes surrounded by
+the two pair of square brackets.
+A data has four properties.
+enumerable :- if value can be returned in for...in loop
+configurable :- can be redefined or delete by delete operator.
+writeable :- the value can be changed.
+value :- contains the actual value of a property.
+
+To change property attributes 
+
+Object.defineProperty(obj,'keyName',{
+    configurable:true/false,
+    enumerable:true/false,
+    writeable:true/false,
+    value:' '
+})
+
+2) Accessor properties
+
+let person = {
+    firstName: 'John',
+    lastName: 'Doe'
+}
+
+Object.defineProperty(person, 'fullName', {
+    get: function () {
+        return this.firstName + ' ' + this.lastName;
+    },
+    set: function (value) {
+        let parts = value.split(' ');
+        if (parts.length == 2) {
+            this.firstName = parts[0];
+            this.lastName = parts[1];
+        } else {
+            throw 'Invalid name format';
+        }
+    }
+});
+
+console.log(person.fullName);
+
+
+Constructor Function:-
+It isused to emulate class
+JavaScript constructor function is a regular function used to create multiple similar objects.
+new keyword ,create a new empty object {},assign this={} ,then assign given value as 
+defined ,return this.
+Omly benefit of new is it create new this objects. 
+
+function Person(firstName, lastName) {
+      if (!new.target) {
+        // throw Error("Cannot be called without the new keyword");
+        return new Person(firstName, lastName);
+        //This pattern is often used in JavaScript libraries and 
+        frameworks to make the syntax more flexible.
+    }
+    this.firstName = firstName;
+    this.lastName = lastName;
+
+    this.getFullName = function () {
+        return this.firstName + " " + this.lastName;
+    };
+}
+Person.prototype.getFullName=function () {
+        return this.firstName + " " + this.lastName;
+    };
+- The problem with the constructor function is that when you create multiple instances of 
+  the Person, the this.getFullName() is duplicated in every instance. This is not memory 
+  efficient.
+
+- To resolve this, you can use the prototype so that all instances of a custom type can 
+  share the same method.
+
+
+Return from constructor function
+Implicitly it rerun this
+Otherwise 
+if it return non-object,it ignore
+if obj then return that obj instead of this.
+
+Without new keyword,
+it happend bcoz if that function not return this then instance would not be able to access 
+that actual object.
+
+This would work.
+But here this is bound to global global
+   function Person(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+
+      this.getFullName = function () {
+        return this.firstName + " " + this.lastName;
+      };
+      this.getThis=function(){
+          console.log("this")
+      }        
+      return this;
+    }
+
+    let person = Person("John", "Doe");
+    console.log(person.getFullName());
+
+
+
+
+PROTOTYPE
+It is gloabal.
+Object() => It is funtion.
+Object.prototype.constructor => ref Object function.
+Person.prototype.constructor => ref Person function.
+
+prototype linkage :- JavaScript links the Person.prototype object to the 
+                    Object.prototype object via [[Prototype]].
+https://www.javascripttutorial.net/wp-content/uploads/2021/01/JavaScript-Prototype-Person.prototype-Object.png
+
+The link of p1, Person.prototype, and Object.protoype is called the prototype chain.
+
+let s = p1.toString();
+
+In this case, JavaScript follows the prototype chain to look up for the toString() method in the Person.prototype.
+
+Because the Person.prototype doesn’t have the toString() method, JavaScript follows the prototype chain and searches for the toString() method in the Object.prototype object.
+
+In conclusion, when you define a method on the prototype object, this method is shared by all instances.
+Not duplicated by every instance ,whichis memory in-efficient.
+
+The __proto__ is pronounced as dunder proto.
+
+Person.prototype.fun=function(){}
+p1=new Person()
+This is not persent in p1 ,but in Person.
+Same goes for .toString().
+This happen through prototype chaining.
+If being asked ,regarding memory efficient.
+
+
+FACTORY FUNCTION:-
+When a function creates an object, it is called a factory function.
+
+function createPerson(firstName, lastName) {
+    return {
+        firstName: firstName,
+        lastName: lastName,
+        getFullName() {
+            return firstName + ' ' + lastName;
+        }
+    }
+}
+
+
+let john = createPerson('John', 'Doe'),
+    jane = createPerson('Jane', 'Doe');
+
+console.log(john.getFullName());
+console.log(jane.getFullName());
+
+When you create an object, that object requires a space in the memory. If you have a thousand person objects, you need one thousand spaces in the memory to store these objects. These person objects, however, have the same getFullName() method.
+
+function createPerson(firstName, lastName) {
+    return {
+        firstName: firstName,
+        lastName: lastName
+    }
+}
+
+const behavior = {
+    getFullName() {
+        return this.firstName + ' ' + this.lastName;
+    }
+}
+
+
+let john = createPerson('John', 'Doe'),
+    jane = createPerson('Jane', 'Doe');
+
+
+john.getFullName = behavior.getFullName;
+jane.getFullName = behavior.getFullName;
+
+console.log(john.getFullName());
+console.log(jane.getFullName());
+
+
+It’ll more difficult if you have many methods and have to assign them manually.
+
+
+The Object.create() method
+
+
+const behavior = {
+    getFullName() {
+        return this.firstName + ' ' + this.lastName;
+    }
+}
+
+function createPerson(firstName, lastName) {
+    let person = Object.create(behavior);
+    person.firstName = firstName;
+    person.lastName = lastName;
+    return person;
+}
+
+
+Own Property
+------------------
+
+A property that is directly defined on an object is an own property.
+The obj.hasOwnProperty() method determines whether or not a property is own.
+const person = {
+    firstName: 'John',
+    lastName: 'Doe'
+};
+const employee = Object.create(person, {
+    job: {
+        value: 'JS Developer',
+        enumerable: true
+    }
+});
+console.log(employee.hasOwnProperty('job')); // => true
+console.log(employee.hasOwnProperty('firstName')); // => false
+console.log(employee.hasOwnProperty('lastName')); // => false
+console.log(employee.hasOwnProperty('ssn')); // => false
+
+
+
+
+The Most Common Patterns To Create Objects 
+------------------------
+1.)Factory pattern
+2.)Constructor pattern
+3.)Prototype pattern
+4.)Constructor / prototype pattern
+5.)Parasitic constructor pattern:-
+6.)Durable constructor pattern
+
+
+5.)Parasitic constructor pattern:-
+create a constructor function that creates an object and returns that object.
+function Animal(name) {
+    var o = new Object();
+    o.name = name;
+    o.identify = function() {
+        console.log("I'm " + o.name);
+    }
+    return o;
+}
+
+Here, the Animal constructor function is the same as the one in the factory pattern. 
+However, you call it as a constructor using the new operator.
+
+var dog = new Animal('Bingo');
+
+By default, the new operator returns the object returned by the constructor function. 
+If the constructor function does not return an object, the new operator creates that 
+object instead.
+
+6.)Durable constructor pattern
+A durable object is an object that does not have public property and its methods don’t 
+reference to the this object.
+
+function secureAnimal(name) {
+    var o = new Object();
+    o.identify = function() {
+        console.log(name); //  no this
+    }
+    return o;
+}
+
+var alien = secureAnimal('?#@');
+alien.identify(); // ?#@
+
+The durable objects are often used in secure environments where accessing this and
+ new are not allowed.
+
+ The alien is a durable object that does not allow the external 
+ code to access its members without calling its methods.
+
+
+
+ w3School:-
+ -----------
+ Date objects, Array objects, and Person objects inherit from Object.prototype.
+
+ 

@@ -1,0 +1,43 @@
+-  Flush Timer : Controll the time b/w the route is invalidated or mark 
+                as unreachable and removal of entry from table.
+                Default value 240secc.
+-  Hold-Down timer : Started per route entry, when hop count is change from lower to higher.
+this allow the route to stabilise.                
+During this time no update can be done to that entry.
+
+THE RIP HOP COUNT : The no. of routers need to be passed to reach destination IP.
+Acc. to RIP 16 Hop-Count means IP/route is unreachable as RIP hop limit.
+0 Hop-Count means Route is directly connected.
+
+LIMITATION OF RIP :- 
+Hop-Count can't exceed 15.
+Has slow convergence time(Knowing about all the router in network is Convergence & time to update 
+            all the table in the network called CT)
+Vurneable to count-to-infinity problem.  
+Does not support VLSM(Variable lengh subnet masks) by RIPv1.
+
+17.RIP versions
+RIP defined two msgs:-
+Request Message : It ask neighbour RIP-enabled interfaces of (router) to send its routing table.
+Response Message : Carries its routing-table.
+
+
+RIPv1:- Every 30 seconds RIP-enable-interfaces exchange their own routing-table.
+Use classful routing, so not support subnet (VLSM).
+Impossible to have different-sized subnets inside of the same network class.
+No support for router authentication ,making RIP vurnerable to various attack.
+
+
+RIPv2 
+Support CIDR(Classless Inter-Domain Routing) as it carry subnet info.
+To avoid unneccassary load on host that do not participate in routing
+,RIPv2 multicast the routing-table to al adjacent routers at all address
+224.0.0.9 , as opposed to RIPv1 which uses broadcast.
+In RIPv2 ,md5 authentication was introduced.
+Route tags also used in RIPv2 ,allows routers to distinguished b/w the router-table the router 
+learned from RIP-protocol or from other protocol.
+
+RIPng
+Extension of RIPv2 ,to support IPv6.
+IPv6 originally use IPsec.
+RIPng sends updates on UDP port 521 using the multicast group FF02::9.

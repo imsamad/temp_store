@@ -1,0 +1,4 @@
+﻿					RENDERING
+useState:-
+To be flagged it must return diffrernt ref in case of primitive type.
+Setter function cause re-render exception if seter function set the value to the same value.

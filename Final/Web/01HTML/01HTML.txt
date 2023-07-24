@@ -1,0 +1,80 @@
+Tag:- 
+ p
+ pre :- Pre-formatiing text
+Formatting tags:-
+i
+em
+sub
+sup
+ins
+del
+small
+strong
+mark
+
+Quotation Tag:-
+quotation
+q = " "
+abbr
+address
+cite
+
+Bookmarking
+
+Image
+Image Map
+Picture :- Responsive
+Figcaption
+
+
+
+List
+ul :- list-style-type
+ol type="a/A/1/i" start
+dl dd dt
+
+Head :- Contain meta-data (data about data)
+title
+link
+meta
+script
+style
+base
+
+Semantic Element:-
+
+   Layout
+      header
+      nav
+      section
+      article
+      aside
+      footer
+      details
+      summary   
+      time
+
+Responsive Element:-
+Web pages scale itself nicely to fit on any device.
+   Web pages that looks good on every device
+   Adjust itself on every device
+   Scale nicely to fit on any device.
+
+
+Code
+   code
+   kbd
+   samp
+   var
+<pre>
+<code>
+------------
+------------
+------------
+------------
+</code>
+</pre>
+
+
+Entities
+ Keywords reserved 

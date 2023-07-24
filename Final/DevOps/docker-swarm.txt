@@ -1,0 +1,4 @@
+docker info | grep -i swarm
+
+docker swarm init --advertise-addr [ip_addr]
+

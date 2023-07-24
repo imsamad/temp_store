@@ -1,0 +1,5 @@
+Enable root login
+
+1.)sudo echo AllowRoot >>  /etc/gdm3/custom.conf
+2.) comment /etc/pam.d/gdm-passswod 
+    auth required pam_succeed_if.so user != root quiet_sucesss

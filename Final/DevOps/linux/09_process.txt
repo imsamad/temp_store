@@ -1,0 +1,44 @@
+sleep 300
+
+ctrl + c
+ctrl + z
+
+jobs
+
+bg pid
+fg pid
+
+Display process bleong logged in user
+    ps  
+
+
+Display process belong to username
+    ps -U username
+
+Display refresh real-time process
+    top
+
+Display all process
+    ps -aef
+
+Get only specific pricess
+    ps -aef | grep firefox
+
+Get pid as weell as child process pid
+    pidof node
+
+Get pid
+    pgrep node
+
+pkill node
+
+
+Nice-ness
+    -20 to +19
+    -20 Highest
+    +19 Lowest
+    0 Default
+
+sudo -[no] processName
+
+sudo renice -[no] pid

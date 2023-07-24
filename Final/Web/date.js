@@ -1,0 +1,15 @@
+var dat = new Date();
+console.log(dat);
+console.log('FullYear ', dat.getFullYear());
+console.log('Month ', dat.getMonth());
+console.log('Day ', dat.getDay());
+console.log('Date ', dat.getDate());
+console.log('Hourse ', dat.getHours());
+console.log('Minutes', dat.getMinutes());
+console.log('Seconds ', dat.getSeconds());
+console.log('Mili ', dat.getMilliseconds());
+console.log('Time ', dat.getTime());
+console.log('UTC date ', dat.getUTCDate());
+// console.log('Now ', Date.parse(Date.now() + 2 * 24 * 60 * 60 * 1000));
+const temp = Date.parse('July 02, 2020 00:00:00');
+console.log(temp);

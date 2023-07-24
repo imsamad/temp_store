@@ -1,0 +1,62 @@
+=============== 1(16) ===============
+
+Process:- Program in execution.
+Thread :- Unit of execution within a process.
+    A process can have anywhere from one thread to many thread.
+
+
+=============== 2(17) ===============
+Process State:-
+As process execute ,it change its states.
+State of process is defined in part by the current activity of that process.
+NEW
+RUNNING
+WAITING
+READY
+TERMINATED
+=============== 3(18) ===============
+PCB (Process Control Block)
+Each process is represented by PCB in OS.
+Process ID
+Process State
+Process Number
+Process Counter
+Registers
+Memory Limits
+List of open files
+=============== 4(19) ===============
+Objective of multiprogramming is to have some process running at all times ,to maximise CPU utilisation.
+Objective of time-sharig is to switch CPU among process so frequently that user can interact witheach program smoothly while it(they) is(are) running.
+VLC player ,VS code,File Manager
+
+Scheduling Queues:-
+Job Queue:- As process eneter the system they are put into job queue
+Ready Queue :- Process which are in main memory and are ready & waiting to execute are kept in list called ready queue. 
+=============== 5(20) ===============
+Context Switching
+On interupt OS save the context of currently running process on CPU, so that OS can restore
+that context when the procesing is done,essentially suspending the process and then resuming it.
+That ctx is represented in PCB of the process.
+
+Context-Siwtch Time is pure overhead.
+It speed varies machine-to-machine,
+Depend on memory speed,no of registers to copied & existence of special instructions.
+
+=============== 6(21) ===============
+=============== 7(22) ===============
+Process Termination
+A Process Terminates when it finsh executing its last statement
+,ask OS to delete it by calling exit() system call.
+All the resource de-allocated by OS corresponds to that process.
+
+Parent may trigger termination of its children bcoz of :- 
+child exceeded usage of some resources that it has allocated.
+Task assigned to child no longer required.
+Parent is exiting & OS does not allow child process if their parent does no more exist/terminates.
+Parent process can cause termination of child processes
+=============== 1(16) ===============
+=============== 1(16) ===============
+=============== 1(16) ===============
+=============== 1(16) ===============
+=============== 1(16) ===============
+=============== 1(16) ===============

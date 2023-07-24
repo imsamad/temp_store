@@ -1,0 +1,217 @@
+CN :- Set of Nodes connected by communication links.
+Node :- Device capable of sending /recieving data.
+
+============ 2 ============
+Characteristics (FSQS)
+1.) Fault Tolerence
+    - despite failure of one node, network must be operating. 
+2.) Scalability
+    - grow based on need, with good performance.
+3.) QoS
+    - Set priorities
+    - Manage data traffic.
+4.) Security
+    - prevent(UMF)
+        - unauthorised access
+        - misuse
+        - Forgery
+    - provide(CIA)
+        - confidentiality
+        - Integrity
+        - Availability
+============ 3 ============
+All Communication schema have common :- 
+1.) Sender 2.)Reciever 3.)Medium
+PROTOCOLS :- Set of rules governs all methods of communication.
+    It defines:- 
+    - What is communicated.
+    - How it is communicated.
+    - When it is communicated.
+Protocols in human communication
+    - Sender Reciever
+    - common grammer
+    - spped & timing
+    - confirmation or acknowledgement.
+--------------------------------------
+Protocols defined:-
+    - Message encoding.
+        - Converting data to analog/digital signal.
+    - Message formatting and encapsulation.
+        - Agreed format b/w sender & reciever.
+        - Encapsulate data with source & reciever rightly.
+    - Message timing.
+        - Flow control.
+        - Response timing.
+    - Message size.
+    - Message delivery options.
+        - Unicast
+        - Multicast
+        - Broadcast
+============ 4 ============
+P2P
+Client-Server
+============ 5 ============
+components
+Node
+    End Device
+    Intermediary Device
+        Switches
+        Router
+        Cell Towers
+        WAP(wireless access point)
+        Firewall(Security Devices)
+        Bridges
+        Hubs 
+        Repeaters
+Medium
+    Wired Medium
+        Ethernet Straight-through cable
+        Ethernet cross-over cable
+        Coaxial cable
+        Fiber Optic cable
+        USB cable
+    Wireless Medium
+Service
+    e-mail
+    storage services
+    file sharing
+    Instant msg
+    online gaming
+    VoIP
+    Video Telephony
+    WWW
+============ 6 ============
+LAN:-
+    - Connected nodes within limited area.
+        Devices
+    - Wireless(wifi)
+    - Wired (Ethernet- Hub,Switch)
+MAN:-
+    - Connected nodes within region of size metropolitan area(City).
+        Devices
+    Switches/Hub
+    Routers/Bridges 
+WAN
+    - Or Internet
+    - Telecommunication network extends over large geographic region.
+New Trends
+BYOD(Bring ur own device).
+Online collaboration.
+Cloud computing.(On demand availability of computer resources w/o direct active management by 
+    user)
+
+============ 7 ============
+============ 8 ============
+============ 9 ============
+IP address
+    Node in computer network identified by IP address.
+    Logical address.
+    Can change based on location.
+    Assigned manually or dynamically.
+    Represnted in decimal and have four octets(8-bit/1 Byte).
+    Total 16 bits
+0.0.0.0 to 255.255.255.255
+============ 10 ============
+MAC address (Media Access Control)
+Every node is identified by MAC add in LAN.
+By manufacturer=>Physical/Hardware=>Unique=>Immutable
+Represnted in Haxa-Decimal.
+48 bits.
+Seprator:- (-),(.),(:)
+============ 11 ============
+PORT ADDRESS
+Process in a node is identified by PORT address.
+Data which are recieved/sent must reach the right process.
+PORT = Communication Port
+Fixed Port No. & Dynamic Port No.(0-65535)
+============ 12 ============
+Switching
+Help in deciding best route in data transmission if there are multiple routes.
+1.)Circuit 
+    - B4 data transfer a dedicated path is established b/w sender & reciever.    
+2.)Message 
+    - Store & forward mechanism.
+    - Message is transfered as complete unit and forwarded using store and forward mechanism 
+      at intermediary node.
+    - Not suited for streamng media and real-time app.
+3.)Packet
+    - Internet is packet Switch Network.
+    - Data is broken down into individual chunks called packets.
+    - Each packet have source and destination address with sequence no.
+    - Sequence no. help in 
+     - reordering
+     - detect missing packet
+     - send ack.
+    a.)Datagram Approach
+     - connectnless switching
+     - Path is not fixed, intermediary node takes decision to forward.   
+    b.)Virtual Circuit Approach.
+    - connection-oriented switching   
+    - preplaned route is established b4 msg is sent.
+    - Call request and call accept are used to establish the connection b4 transfer.
+    - Path is fixed for duration of logical connection. 
+============ 13 ============
+Layering
+Decompose problem into more manageable components.
+Advantage:-
+Provide more modular design.
+Easy to troubleshoot.
+
+Layered Architecture
+OSI refernce model.
+    Open-System Interconnection
+    Model for designing a computer network that is scalable,flexible and robust inter-operable(window-buntu).
+    It is guideline not Protocols thats why,model 
+    Developed by ISO(International Standard of Organisation).
+    It show how to facilitate communication bw different systems w/o requiring changes 
+     to logic of underlying hardware and software.
+    It is never fully implemented.
+TCP/IP model.
+    It is hierarchical protocol made up of interactive modules, each of which provide a 
+    specific functionality.
+
+============ 14 ============
+OSI
+APSTNDP
+Application
+Persentation
+Session
+Tpt => PORT
+Network => IP
+Data Link => MAC
+Physical
+============ 18 ============
+MAC address is leaved on Networking to handle.
+============ 19 ============
+TCP (ATIN)
+APS=Application e.g. HTTP,DNS,DHCP,FTP
+T=Tpt e.g. TCP,UDP
+Network=Internet e.g. IPv4,IPv6,ICMPv4,ICMPv6
+DP=Network access e.g. PPP,Frame Relay,Ethernet
+
+Protocols of differet layers
+Application Layer
+    Name System :- DNS
+    Host Config :-BOOTP,DHCP
+    EMAIL :- SMTP ,POP,IMAP
+    File Transfer:- FTP,TFTP
+    Web :- HTTP
+Transport Layer:-
+    UDP,TCP
+Internet Layer
+    IP :- NAT
+    IP support :- ICMP
+    Routing Protocols:- RIP,OSPF,EIGRP,BGP
+Network Access Layer:-
+    PPP,Ethernet,Interface Drivers
+
+PDU(Protocol Data Unit)(DSPFB)
+Named according to protocols of the TCP/IP suite,
+    Data => Application Layer(APS)
+    Segment => TPT layer
+    Packet => Network Layer
+    Frame => Data Link Layer(Medium Dependent)
+    Bits => Physical Layer
+============ 2 ============
+============ 2 ============
+============ 2 ============

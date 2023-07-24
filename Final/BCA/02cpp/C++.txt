@@ -1,0 +1,217 @@
+01.)
+General-purpose ,high-level,compiler-based ,OO programming language.
+Software:-Set of programs./Digitalised Automated Process.
+Program:-Set of instructions.
+==========================================================================================================================
+00.)  C VS C++
+======================================================================================================
+C is POP/FOP.Function  Oriented Language
+C++ is OOP but not pure. 
+
+					09.)cout/cin
+======================================================================================================
+NO NEED PF ANY CONVERSION OPERATOR;
+THEY ALLOW CASCADING.
+
+cout<<
+predefined object in ostream class found in iostream file;
+Refer to console device
+<< It is insertion operator
+overloaded left shift operator 
+
+cin
+predefined object in istream class found in iostream file;
+Refer to standard input device
+>>Extraction operator
+overloaded right shift operator 
+
+					11.)Manipulators
+======================================================================================================
+endl			vs			\n
+take no byte					take 1 byte
+backslash character					MAnipulator operator
+
+1.)
+To change style the output of result.
+
+2.)
+Two types of manipulators :-
+a.)Manipulators Operator e.g. endl ,ends
+
+b.) Manipulators Function e.g setw() ,setfill(), setioflags() , setprecision()
+3.)
+<iomanip.h> 
+When using manipulators this header file is included.
+Except endl & ends These are also present in  <iostream.h>
+It encompasses iostream in itself 
+They have cout object related operation.
+4.)
+setw()
+It also specify no. of space.
+It print text from right to left unlike cout/printf
+5.)
+setfill()
+It work with setw()
+6.)
+setprecison(2);
+
+7.)
+setbase(8)<<65;
+
+8.)
+setiosflags( )
+To set diffrent type of flag in prog.
+
+
+					12.DMA-1
+======================================================================================================
+Explicit type casting is not needed due to implicit type casting;
+In DMA memeory is allocated in HEAP area it is permanent If it is DELETE or block is closed.
+Like C in C++,pointer variable is needed too.
+Pointer variable generally size of 2 byte,bcoz it is going to store address which is of unsigned integer.
+
+ 
+					15.)Function W/ Default Arg
+======================================================================================================
+It support the function polymorphism concept.											
+At time of func. declaratiom we are going to declare the formal parameter w/ initial values.It is also the rule.
+
+Submit default argument from right to left, so don't give default argument in middle.
+
+					16.)Struct vs Class
+======================================================================================================
+
+C struct                              vs                                   C++Struct
+
+Collection of data var.			      Collection of data var & function.
+Member are public				      Member are private/public/protected
+
+User-defined				      User-defined
+
+
+C++ struct  	             vs		      C++ class
+
+By default member are  public.		      By default member are private.
+Cannot participate in inheritance.		      Can participate in inheritance.
+Unable to use in complex prog.		      Able to use in complex prog.
+Collection of data var.			      Collection of data var & function.
+Member are public				      Member are private/public/protected
+User-defined				      User-defined
+
+					18.)Class
+======================================================================================================
+
+Why?
+Bcoz in C/C++ structure member or data is public by default , in class same are private by default.
+
+					19.)Class Declaration
+======================================================================================================
+If class object is declared just after the class, then no need to give class a name.(PROGAM 19.class)
+20.)Class Member Function
+======================================================================================================
+
+Inline Functin Definition:-Defining bthe member function within the class.
+		       Ths cause expansion in program code.Bcoz of having complex statement like control statement.
+			
+External:-
+Syntax
+
+return_type  class_name : : function_name(arg){
+}
+
+Object occupy the memeory not the class,like by writing int will not cause to occupy memory but declareing its variable int a will occupy memory
+
+
+					34.)Friend Function
+======================================================================================================
+	IN SIMPLE TERMS IT IS FUNCTION LIKE NORMAL FUNCTION IF INTRODUCED AS FRIEND IN ANY CLASS IN ANY 	DOMAIN PRIVATE / PUBLIC / PROTECTED THAN THEIR PRIVATE OR OTHER DATA CAN BE MANIPULATED OR 	OPERATED.
+WHY?
+Generally member function are used to access  private data of same class.
+They are against the data hiding concept , so use them in absolute need case.
+INTRO:-
+It is non-member function of class but able to access private data of many classes in order to reduce the amount of code by not writing function for each and every class within classes thats why decalartion is done in class & define outside the class & increase the performance of program.
+RULES:-
+* Can be introduced friend function inside n number of class.
+* Friend Function declaration must be conducted in class, definition outside the class without using friend keyword.
+* Can be declared in public/private/protected unlike contructor.
+* They must have object as argument in them.Bcoz they are defined outside the class & not the member function.
+* But inside the friend function to access the class data we have to use dot( . ) operator.
+* They are called/invoked like the normal function , as they are not member function do not use w/ object.
+	
+					35.)Friend Class
+======================================================================================================
+	IN SIMPLE TERMS IT IS CLASS LIKE INTRODUCED AS FRIEND IN ANY CLASS IN ANY DOMAIN 
+	PRIVATE / PUBLIC / PROTECTED THAN THEIR PRIVATE OR OTHER DATA CAN BE MANIPULATED OR 
+	OPERATED BY THAT CLASS WHICH IS INTRODUCED AS FRIEND.
+	FRIEND CLASS => CONTAINED CLASS
+	IN WHICH IT IS DECLARED => CONTAINER CLASS.
+
+COMPOSITION:- Declaring one class object in another class which make to reuse the data of container class in contained 	           class.           
+	           It does not support extensibility,core contrast to inheritence.
+	           IT BECOMES NECESSAY IN FRIEND CLASS TO TAKE OBJECT OF THE CLASS WHICH FRIEND CLASS IS 	           INTRODUCED whether send it through function argument or declare as data member.PROGRAM 37A,37B
+
+					36.STATIC DATA MEMBERS
+======================================================================================================
+They become member of class not of object.
+Thats why, can be called by using class name; class_name : : var=20;
+RULES:-
+	* Declared in class as statis int var;
+	*Outside class it have Define.
+	*
+
+					37.)STATIC MEMBER FUNCTION
+======================================================================================================
+
+These function works only on static data member , all data member must be static.	
+RULES:-
+	* Declared in class,can be defined w/i class.
+	*Outside class Defining is optional.
+
+					42.)CONSTANTS	
+======================================================================================================
+const variable have declare  & define/initialise at the same time.
+In C++,any data member which is constant of class can not be initialise in classs directly,it is against the core concept of data security,It hav ediffernt syntax to initialise const daat member.
+In public:
+class_name( ):data_member(100){ }; 	
+si():r(100){ }
+
+CONSTANT MEMBER FUNCTION
+
+the function which is declared const can not change the object data state but can only access,while which can modify is called modifier.
+
+					58.)PURE VIRTUAL FUNCTION
+======================================================================================================
+The function which is declared in base class w/o any code/content OR not defined & initialised w/ ZERO & then redefined in derived classs .
+
+They also called DO NOTHING FUNCTION.
+Abstract Base Class:-The class having pure virtual function is called ABC.
+		   ABC does not allow to create object of themselves.
+		   They are only for inheritence concept.
+		   They are used to create base class pointer at runtime to get runtime/dynamic polymorphism.
+
+virtual return_type function()=0;
+					60.)VIRTUAL DESTRUCTOR
+======================================================================================================
+There is no virtual constructor,only virtual distructor.
+Virtual Function are used to get runtime polymorphism.
+					
+======================================================================================================
+Try contain error causing code,throw is going to generate some value whenever that error occur,catch block recieve that value generate by throw & give sugggestion or response according to throw generated error.
+
+If any error occured in program than code b/w throw & catch will be bypassed not be executed.
+
+Catch block must be start just after throw or respected try block.
+
+					62.)Template
+======================================================================================================
+Template functon are also called parametrised function bxoz in them parameterised have to pass.
+					73.)File Operation
+======================================================================================================
+A file is used to store data permanently in non-volatile memory secondary storage devices,so that we can use data whenever needed.
+
+The standard io operation are cin & cout cin take data from keybord & submit into volatile memory RAM in form of stack,array,  etc. cout allow to display that data on display
+This  data  life time varies.
+After program ended data in this volatile memory also deleted.
+So to overcome this debacle SECONDARY OPERATIONS are needed.
+
+

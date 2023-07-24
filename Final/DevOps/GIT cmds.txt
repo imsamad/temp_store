@@ -1,0 +1,49 @@
+git init
+git status
+git add filename.ext
+git rm --cached index.html
+git add .
+
+********************************** COMMIT *********************************
+git commit -m "--------"
+git log
+git log --oneline
+
+**************************UNDOING COMMIT*********************************
+git checkout id
+git chechout master
+git revert id
+:wq
+git reset id
+git reset id --hard
+
+
+git branch name
+git checkout branchname
+git checkout -b branchname  AS SAME ABOVE TWO
+git branch -a  ALL BRANCH
+git branch -D branchname
+git merge branchname
+git merge branchname --squash THEN git commit -m ""
+
+
+git push url branchname
+
+git remote add origin url
+git push origin branchname
+git remote -v
+
+git pull origin master
+
+------------
+git config --global user.name "username"
+git config --global email.name "email@gmail.com"
+git config user.name "username"
+git config email.name "email@gmail.com"
+
+
+Merge last 4 commit in last 5th commit =>
+git rebase -i HEAD~5
+
+Change last commit message =>
+ git commit --amend -m "add"

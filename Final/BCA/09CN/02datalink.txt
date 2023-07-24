@@ -1,0 +1,211 @@
+============ 1(34) ============
+It is responsible for moving frames from one node to another node.
+Services:-
+Framing
+Physical Addressing
+Error ctrl
+Flow ctrl
+Access ctrl
+Framing:- Pack bits into frames so that each frame is 
+    distinguishable from other frame.
+Physical Addressing:- Encapsulating header plus trailer info with packet.
+Flow Control:-
+    Speed Matching Mechanism
+    Cordinates amount of data can be sent before recieving ack.
+Access Control :- Media access ctrl
+Error Control:- 
+    a.) Error Detection
+    b.) Error Correction
+============ 2(35) ============
+SubLayers
+Total Five responsiblity:-(Flow)+(4 by MAC sublayer)
+
+LLC/DLC(Logical Link Control)/(Data Link Control) sublayer
+    Flow Control:- Add control info to incoming data to help to deliver to destination. 
+MAC sublayer:-
+    Implemented by Hardware, typically in NIC.
+    Two responsiblity:-
+     - Data Encapsulation
+        - Frame asemble b4 transmission ,frame disassembly b4 reception of a frame.
+        - Add a header & trailer to network PDU(packet)   
+Functionality:-
+a.) Framing
+b.) Physical Addressing or MAC Addressing
+c.) Error Control
+d.)Media Access
+============ 3(36) ============
+============ 4(37) ============
+Frame= Header + NetworkPDU(Packet) +Trailer
+In Packet Switch network, the block of data called frame are excahnged b/w nodes not bit's streams.
+This result in a sequence of bit being sent over link.
+
+Types of framing:-
+1.) Fixed Size Framing
+Frame Length act as delimiter of frame, does not require additional boundary bits to identify the start and end of frame. 
+
+2.) Variable-Size Framing
+Additional mechanism are kept to mark the beginning & end of frame.
+============ 5(38) ============
+Framing Approaches :- 1.) Bit-oriented 2.)Byte-Oriented Approach
+1.) Bit-oriented 
+Frames is simply views as a collection of bits.
+Data is transmitted as sequence of bits that can be interperated as text or as multimedia data.
+PROTOCOLS
+    HDLC <=> High-Level Data Link Control
+
+2.)Byte-Oriented Approach
+Here each frame is viewd as collection of bytes rather then bits.
+a.k.a Character Oriented Approach
+PROTOCOLS
+    BISYNC <=> Binary Synchronous Communication Protocol
+    DDCMP <=> Digital Data Communication Message Protocol
+    PPP <=> Point-toPoint Protocol
+
+============ 6(39) HDLC ============
+Bit-Oriented Protocol
+    HDLC 
+    BegSeq+Header+Body+CRC+EndSeq === (8+16+var+16+8)
+    BegSeq === EndSeq <==> 01111110
+    This seq is also transmitted at any time,that the link is idle so that sender & reciever 
+    can keep their clocks synchronised.
+    Header => Address & Control Field
+
+Types of HDLC frame:-
+a.)I-Frame(Information Frame) 1st bit is 0.
+b.)S-Frame(Supervisory Frame) 1st bit is 10.
+c.)U-Frame(Un-numbered Frame) 1st bit is 11.
+
+
+============ 7(40) ============
+Bit-Stuffing
+01111110 =>Insert extra zero after five consecutive 1 occured in non-header/trailer part.
+
+============ 8(41) BISYNC ============
+Byte-Oriented Approach
+    - See frame as collection of bytes.
+
+BISYNC === SYNC(8)+SYNC(8)+SOH(8)+HEADER+STX(8)+BODY(var)+ETX(8)+CRC(16)
+
+SYNC:-Beg of frame is denoted by sending a special SYN.
+Data portion is contained b/w special sentinal character STX and ETX.
+STX :- start of text
+ETX :- end of text
+SOH :- Start of header.
+DLE :- Data Link Escape 
+CRC :- Cyclic Redundancy Check
+
+
+Byte-Stuffing:- Adding one extra byte whenever there is a flag or escape character in the text.
+============ 9(42) P2P ============
+PPP = Point-To-Point
+Data Link layer protocol.
+It is WAN protocol & which is commonly run over Internet links.
+Used in broadband communications having heavy loads & high sppeds.
+Used to transmit multiprotocol data b/w two directly connected (P2P) computers.
+
+Frame-Format
+Flag(8)+Address(8)+Control(8)+Protocol(16)+Payload+Checksum(16)+Flag(8)
+Flag:- Mark the beg & end of frame.
+Address:- Set to 11111111 in case of broadcast.
+Control:- Set to constant value 11000000.
+Protocol:- 1/2 bytes ,defined type of data contained in the payload field.
+PayLoad :- Carries data from Network Layer.
+    Max Length is 1500 bytes.
+    However this may be negotiated b/w endpoints of communcatio.
+
+Character Stuffing :- Adding one xtra byte whenever there is a flag sequence appear in the payload. 
+
+============ 10(43) DDCMP  ============
+Count Field in the frame format.
+Count:- How many bytes are contained in the frame body?
+FrameFormat:-
+SYNC(8)+SYNC(8)+Class(8)+Count(14)+Header(42)+Body+CRC(16)
+
+If count field corrupted , then the end of frame would not be detected by the reciever.
+
+============ 11 (44)(Error) ============
+Type of Errors
+1.)Single-Bit 2.)Multiple-Bit Error 3.)Burst-Error
+
+Error Control Mechanism
+ *) Error Detection
+ *) Error Correction
+
+Error Detection
+Process of detecting error in recieved message withour having an original copy of 
+recieved message.
+1.) Vertical RC <=> Parity
+2.) Logitudinal RC <=> Rows-Cols 
+1.) Checksum RC <=> Divide in 'k' segment having 'n' bits,add them if carry add that too =>do 1's compelement <===> on reciever side sum of segments + checksum will give all 111111....
+1.) Cyclic RC <=> Divisor,plus append L(divisor)-1 to data.
+
+
+============ 12(51) Network Performance ============
+It is measured in the following ways:-
+a.) Bandwidth
+b.) Throughput
+c.) Latency(Delay)
+
+Bandwidth vs Throughput 
+1000 cars can be pass through a road per second.
+Actually 100 cars are being 
+
+
+a.) Bandwidth
+Informal :- Maximum amount of data that can be transmitted per second.
+Formal :- Number of bits that can be transmitted over network in a certain perios of time.
+
+b.)Throughput
+Informal :- Actual amount of data that passes through a network.
+Formal :- How fast we can actualy sent data through a network. 
+
+Why???
+Bandwidth might be 100gbps,but end devices only handle 1gbps.
+
+
+Latency:-
+It defined how long a message takesto arrive at destination since the time first bit was 
+sent from sender/source.
+
+It is made up of four:-
+1.) Transmission Delay
+2.) Propagation Delay
+3.) Queuing Delay
+4.) Processing Delay
+Latency = 1+2+3+4
+============ 13(53) ============
+1.) Transmission Delay:- How much it takes to place entire message on medium.
+TD=Message Size/Bandwidth
+2.) Propagation Delay :- Time takes by a bit to travel from surce to destination. 
+PD=Distance/PropagationSpeed
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============
+============ 2 ============

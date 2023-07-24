@@ -1,0 +1,117 @@
+﻿TOC:- It is the study of mathemetical machine or systems 
+           We study computational problems.
+
+Automata Theory is a branch of computer science that deals with designing abstract selfpropelled computing devices that follow a predetermined sequence of operations automatically.
+An automaton with a finite number of states is called a Finite Automaton(FA) or Finite State Machine (FSM).
+Formal Definition of Finite Automation
+An automation can be represented by a 5-tuple (q,Q,F,omega)
+q:-Initial state from where any input is processes. q is subset of Q.
+F:-The final state or states of Q.F is subset of Q.
+Q:- Finite set of states.
+Summation:-Finite set of symbols called Alphabets of automation.
+Omega:-is the transition function.
+					LECTURE:-05
+Symbol:-It is basic building block of any language.They can be any characters or token.
+Alphabet:-In TOC, Finite non-empty set of symbols.
+In english analogy to,is collection of letters.
+Symbolise by Sigma.
+String:- Finite sequence  of alphabets.
+Analogy to Word.
+Language:-Set of String.
+					LECTURE:-07
+Some basic operation on strings.
+1.)Length:- |w|=  It must always be +ve.
+	Epsilon:-String of length zero.
+	Minimum length string.
+	Phi :-It is empty set , string of length zero can not be represented 	using Phi.
+2.)Concatenation of string:-
+w1="abc",w2="efg"
+w1w2=w=abcefg
+|w1|+|w2|=|w|
+w1.w2 != w2w1
+3.)Reverse of string:-
+4.)Prefix or Suffix
+Prefix/Suffix of string length n = n+1
+5.)Substring:-
+They must be in valid consecutive order w..r.t. string.
+					LECTURE:-09
+What is regular language?
+A language is regular language if there exist a Finite Autometa to accept it,or Regular Grammer to generate it or Regular Expression to express it.
+NFA has same as DFA.
+NFA is used for the sake of convience.
+Their accepting power  is same.
+
+
+					LECTURE:-11
+Every DFA can be represented by 5 set.
+DFA=[Q,F,q0,sigma,delta]
+q0=Initial state can be represenetd by any alphabet.It is only one.
+F= Set of final states .It could  be zero or more then one.
+	Could be Q.
+      Represented by Double Circle.
+0<=|F|<=Q.
+If F=Q ,it means FA accpet universal language.
+
+Q=Set of Finite State ,it must be non-null.Bcoz of finite it is called Deterministic Finite Autometa.
+It is a type of memory ,here we remember sth by changing state.
+Q={q0,q1,q2,q3,.....qf}
+Sigma=Set of symbols or input alphabets on which machine work. It must be non-empty and finite.
+Transition Function(Delta):-defined as 
+Delta = Q *  Sigma-> Q
+At state Q ,on taking input symbol sigma it make transition to other state(Q).
+On taking state q1 and taking input symbol Sigma ,you make a transition to state Q1.
+On every step at every input alphabet DFA must react.
+			Deterministic Vs Non-Deterministic
+Deterministic:-
+Machine must respond on every symbol.
+When on taking any input string ,the state transition predictable.
+All machines & hardware are Deterministic.
+Non-Deterministic:-When on taking any input string ,the state transition is not predictable. Follwing is the Fig.
+We study Non-Determinitic Machine for the sake of convience.
+			
+					Lecture 22
+|Q|=m , |Sigma|=n					
+Total No. of DFA's =2^m(m^m*n)
+E.g. Q=2,Sigma=2(a,b)
+No=>2^2(2^2*2)=64
+					Lecture 2.1
+Starting string of length n then, no. of states will be n+2.
+End with string length of n then, no. of states will be n+1 bcoz of lack of dead state.
+Odd occurance of substring "ab" ,|ab|*2
+Substring :- n+1
+Start and end with :-
+
+					Lecture:-3.1( NFA )
+Every tuple is identical except Delta.
+Delta:-On state Q on input sigma ,there might be 2^|sigma| possibility.
+Sigma={a,b}
+Delta = phi,a,b,ab=2^2=4 =Power set of Q
+					LECTURE:-3.2
+A string 'w' is said to be accepted by NFA if there exist a transitiona path on which it start from initial state and end at final state. 
+
+					LECTURE:-3.8
+Conversion from NFA to DFA,
+DFA={sigma,q0,     Qi,f,delta}
+NFA={sigma,q0,     Q,F,DELTA}
+So only sigma,and initial state remain same other can be remain identical.
+No. of state = 1<=n<=2^m
+					LECTURE:-4.1
+Epsilon-NFA.
+Differnce b/w DFA & NFA is Transition ,here transition can be made on empty string ,PHI.
+					LECTURE:-4.2
+From e-NFA to NFA
+No. of state ,Sigma,Initial state remain same.
+Transition Function & Final state change.
+					LECTURE:-5.3
+One language can be expressed by more then one Regular Expression.
+So Two R.E are said to be same ,if they can represent same language
+So Two DFA are said to be same ,if they can accept same language.
+					LECTURE:-6.1
+Grammer:-a grammer is defined by a quadruple
+Sigma=Finite set of small case/terminals. 
+Vn:-Finite non-empty set of non-terminal/uppercase.
+P:-Finite non-empty set of productin rules.
+S:-Start symbol
+Non-terminals :- They are used to generate strings.
+a->b
+a must have one Vn

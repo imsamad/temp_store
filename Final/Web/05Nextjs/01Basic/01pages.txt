@@ -1,0 +1,51 @@
+Pages:- 
+React component exported from page directory.
+Support dynamic routes.
+Pre-render :- 
+1.) By default Next.js generate HTML of each page in advance,instead of having it all done by
+            Client side browser.
+2.) Hydration :- During pre-rendering each page HTML is associated with minimal JS ,on loading of page by browser 
+            assciated JS code run of that page & make that page fully interactive.
+
+Two form of pre-rendering:-
+They both differs when HTML will be generated.
+
+1.)Static Generation
+Statically generated pages can be cached by CDN with no extra configuration to boost performance.
+Their might be two cases 
+1.a.)Page does not require external data
+2.b.)Page require external data
+Use these two function
+   a.)getStaticProps:- 
+      - When page content depend on extrenal data.
+      - This fun called at build time , and pass fetched data as page props
+   b.)getStaticPaths (in addition to getStaticProps)
+      - /xyz/[pid].js :- Which pid toredner depend on external data.
+      - When page route depend on extrenal data.
+      - This fun called at build time or might be at run time.
+
+2.)Server-Side Rendering :- 
+The page HTML is generated on every request.
+
+3.) Client-side Rendering :- Pre-render some part of UI statically, skip some and then populate that skipped UI with 
+browser/Client-Side JS
+
+
+
+???
+Why SSG
+Supoose take a typical case , our website hosted on server ,
+as user request come , server gonna  processes that request as a result generate HTML or fetch data for the site 
+from DB or other API would caried out,on each subsquent request this cycle would be repeated ,
+in case server get Lot influx of visitors Server/DB server does not have enough compute power tohandle those many request
+this could in crash.
+
+??? Why ISG/Regeneration
+SSG works on  princple kind of build once ,server forever.
+In case if data may get stale or old,to serve latest data we have to re-kick the build process again. 
+which would have major disadvatage for app , no matter how fast/efficient build process is, bcoz we have to kind-off
+bring down the server , and global CDN again would have to flag that data as cache for making as cache and then will.
+ISR comes into picture
+
+In ISR app would call respected API get latest data and will server latest data without fully re-building the entire
+app,on other user gonna access pre-generated HTML pages 

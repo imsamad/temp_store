@@ -1,0 +1,16 @@
+npm list --depth=0
+
+npm outdated -g
+
+npm updatd
+
+npm prune 
+
+npm ls --dev
+npm ls --prod
+npm ll
+npm ls
+
+npm root
+
+

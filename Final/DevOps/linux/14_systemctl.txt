@@ -1,0 +1,21 @@
+SYSTEMD - During booting, after kernal has finished loading it has to, it hands over control
+to systemd.
+
+systemctl list-units
+    --all => All active & not-active services
+    --file => All units 
+    ls /lib/systemd/system  => All unit files.
+
+systemctl start 
+systemctl status 
+systemctl stop 
+systemctl restart 
+systemctl reload 
+systemctl enable 
+systemctl disable 
+systemctl is-enabled 
+systemctl is-disabled 
+
+
+journalctl  => Log systemd created in a central location.
+              -u nginx 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+
+  <script>
+    const str = "cebj";
+    console.log(str.constructor);
+    class myClass {
+      constructor(name) {
+        this.name = name;
+      }
+    }
+    // const ins = new myClass("imsamad");
+    // console.log(ins.constructor === myClass);
+    // console.log(typeof ins);
+    // console.log(ins instanceof myClass);
+    function checkFun(name) {
+      this.name = name;
+      this.login = function () {
+        console.log(this);
+      };
+    }
+
+    const inst = new checkFun("imsand");
+    // inst.login();
+    const temp = inst.login;
+    console.log("temp ", temp());
+  </script>
+</html>

@@ -1,0 +1,81 @@
+echo "set nocampatible" >> ~/.vimrc    
+
+Insert Mode
+    i => Start where was cursor
+    a => Put on right
+    o => Put cursor on next Line
+    shift + o => :New Upper Line
+
+ESC - to escape out to cmd mode
+
+Delete 
+    Char Delete
+        x
+    Word Delete
+        dw
+    Cursor to Start of Line
+        d^    
+    Cursor to End of Line
+        d$    
+    Line
+        dd    
+    From cursor to EOF
+        dG
+    From cursor to SOF
+        dH
+ 
+:wq => Save and Exit.
+:q! => exit without saving 
+
+
+Searching And Replace
+    / + enter + n
+    In cmd mode press / enter key, hit enter, press n to traverse to all matching keywords.
+
+Traversing
+    a.) Line
+    nth Line of File
+        10 + shift + g 
+    BOL = start of Line
+        0
+    EOL = end of Line
+        $
+
+    EOF
+        shift + g
+
+    b.) Word
+    word by word
+        w
+    back word
+        b
+
+    c.) Window
+    TOS = Top Of screen
+        shift + h
+    MOS = Middle Of Screen
+        shift + m
+    LOS = Lower Of Screen
+        shift + l
+
+    d.) Screen
+    Next Screen
+        ctrl + f
+    Back Screen
+        ctrl + b
+
+    TOF
+        1 + shift + g
+    word by word by space
+        shift + w
+
+Undo
+    u
+
+Copy/Paste
+    copy Line
+        yy
+    paste one line below cursor
+        p
+    paste one line b4 cursor
+        shift + p

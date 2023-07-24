@@ -1,0 +1,86 @@
+CREATE TABLE tab_name(
+id INT NOT NULL AUTO_INCREMENT, 	
+PRIMARY KEY id ,
+FOREIGN KEY (city) REFERNCES tab_name (cid)
+);
+
+ALTER TABLE tab_name  ADD PRIMARY KEY (id);
+ALTER TABLE tab_name  FOREIGN KEY (city) REFERNCES tab_name (cid);
+
+
+INSERT
+INSERT INTO tab_name (col_names.....) 
+VALUES
+(val...),
+(val...),
+(val...),
+(val...);
+=================
+Constraints:-
+UNIQUE
+NOT NULL
+CHECK(col_name >= 18)
+DEFAULT "Agra"
+====================
+SELECT 
+--------------
+WHERE 
+-----
+Operators
+=, >, <, >=, <=, <> or !=, IN, BETWEEN, LIKE;
+... WHERE Age=19 OR Age=20 === ... WHERE Age IN(18,20);
+... WHERE City!='Agra' OR City!='Mzn' === ... WHERE City NOT IN('Agra','Mzn');
+... WHERE City BETWEEN 'Agra' AND 'Mzn'; => Match Only A & M
+... WHERE Age BETWEEN 18 AND 25;
+
+LIKE WildCards
+a%
+%a
+%am%
+_a%
+__a% => a at 2nd position.
+_oy => oy  at 2nd & 3rd pos.
+
+... WHERE name LIKE "_dus";
+... WHERE name NOT LIKE "_dus";
+
+
+SELECT 
+FROM
+
+JOIN
+ON
+JOIN
+ON
+JOIN
+ON
+
+WHERE
+
+ORDER BY
+
+
+
+SELECT col_name ,COUNT(col_name) AS Total
+FROM tab_name t1
+JOIN tab_name t2
+ON t1.city=t2.cid
+WHERE st_age>=20  /  HAVING COUNT(t1.city) > 5
+GROUP BY t1.city
+ORDER BY COUNT(t1.city)
+
+
+
+ALTER tab_name
+add col = ADD col_name data_type;
+change col dtype = MODIFY col_name dtype;
+
+delete col = DROP COLUMN col_name dtype;
+
+change col name = CHANGE col_name new_name dtype;
+rename table name = RENAME new_tab_name;
+repositioning of column = MODIFY col_name dtype AFTER col_name
+add constraints = ADD constr(col_name)
+change col constraints
+
+ADD AUTO_INCREMENT(4);

@@ -1,0 +1,180 @@
+ES2021
+=======
+||=
+&&=
+??=
+The logical OR assignment (x ||= y) operator only assigns y to x if x is falsy.
+x ||= y or x|| (x=y)
+The logical AND assignment (x &&= y) operator only assigns y to x if x is truthy.
+x &&=y or x && (x=y)
+The nullish coalesing assignment (x ??= y) operator only assigns y to x if x is nullish.
+x ??= y or x ??(x=y)
+
+
+Promise.any() =Opposote of Promise.all()
+------------
+
+Promise.any accept iterable list of promise ,as soon as a promise fullfill from the list,
+Promise.any() return a fullfilled Promise that resolves with a value. 
+If no promises fullfilled ,rejects with an AggregateError that group individual error.
+AggregateError is subclass Error.
+
+Numerical Separtor:-
+--------------------
+const budget = 1000000000;
+const budget = 1_000_000_000;
+
+
+ES2020
+=========
+Nullish Coalescing Operator
+---------------------------
+A nullish value is a value that is either null or undefined.
+
+let count = 0;
+let result = count || 1; => 1
+let result = count ?? 1; => 0
+
+
+ Optional Chaining Operator
+ --------------------------
+ The optional chaining operator (?.) allows you to access the value of a property 
+ located deep within a chain of objects without explicitly checking if each reference 
+ in the chain is null or undefined.
+
+ ?.
+
+Promise.allSettled() – 
+-----------------------
+accept a list of promises and returns a new promise that resolves to an array of values, 
+which were settled (either resolved or rejected) by the input promises.
+The returned Promise resolves to an array of objects that each describes the result of 
+each input Promise. In turn, each object in the array contains two properties: status and 
+value (or reason). The status can be fulfilled or rejected. And value (or reason) reflects
+ the value which each promise was fulfilled (or rejected) with.
+
+
+Dynamic import
+----------------
+let btn = document.querySelector('#show');
+let lang = `message_${getUserLocale()}.js`;
+btn.addEventListener('click', function () {
+    (async () => {
+        try {
+            let dialog = await import(lang);
+            dialog.show('Hi')
+        } catch (error) {
+            console.log(error);
+        }
+    })();
+
+});
+
+Promise.all([
+    import(module1), 
+    import(module2),
+     ...])
+    .then(([module1,module2,module3]) => {
+        // use the modules
+    });
+
+
+globalThis
+----------
+globalThis object that provides a standard way to access the global object 
+across environments.
+
+In the web browsers, the global object is window or frames.
+The Web Workers API, however, doesn’t have the window object because it has no
+ browsing context. Therefore, the Web Workers API uses self as a global object.
+
+To access the global object, you have to use
+ different syntaxes like window, frames, self, or global.
+
+To standardize this, ES2020 introduced the globalThis that is available across 
+environments.
+
+ES2019
+=========
+Array.flat
+-----------
+const numbers = [1, 2, [3, 4, 5, [6, 7, [8, 9]]]];
+const flatNumbers = numbers.flat(Infinity);
+
+console.log(flatNumbers);
+Use the Array.prototype.flat() method to flat an array with the nested arrays.
+Use the depth argument to specify how deep the nested arrays should be flattened. 
+The depth is 1 by default.
+The flat() also removes the holes in the array with empty slots.
+
+Array.flatMap
+-------------
+
+Optional catch
+---------------
+try {
+
+} catch {
+
+}
+Object.fromEntries
+------------------
+const boxStyle = {
+    color: 'red',
+    borderWidth: '1px'
+};
+
+let arr = Object.entries(boxStyle);
+  
+let obj = Object.fromEntries(arr);
+{color: "red", borderWidth: "1px"}
+/////////////// with Map ///////////////
+const config = new Map();
+
+config.set('type', 'database');
+config.set('duration', 30);
+
+
+const cache = Object.fromEntries(config);
+
+console.log(cache);
+
+ES2017
+======
+Padding a string
+-----------------
+String.padStart(padLength [,padString]);
+String.padEnd(padLength [,padString]);
+
+Object.values()
+---------------
+The Object.values() accepts an object and returns its own 
+enumerable property’s values as an array.
+const person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 25
+};
+
+const profile = Object.values(person);
+
+console.log(profile);
+[]
+Object.entries()
+---------------
+ – return own enumerable string-keyed property [key, value] pairs of an object.
+
+async/await
+----------
+the async / await is syntactic sugar for promises.
+    async function sayHi() {
+      throw Error("ooo");
+      return "Hi";
+      return Promise.resolve('Hi');
+    }
+    sayHi().then(console.log).catch(console.log);
+
+
+
+
+

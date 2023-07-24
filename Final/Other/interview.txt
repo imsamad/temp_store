@@ -1,0 +1,49 @@
+English :- NewsPaper / Letter / Communication
+
+HTML / CSS / JS / React / Next.js
+
+CSS / Node / Express / SQL / Mongo
+
+C/Cpp / OS / DS / DBMS / CN
+
+Docker / SSH / Linux / Jenkins / Ansible
+
+Features of e-cart / PWA
+
+curl / ChromeDev Tools / 
+
+Game() ToDo / Timer Google Driver API /  Docs
+
+======================================================================================================================
+======================================================================================================================
+======================================================================================================================
+
+Image optimization / LiveChat
+Infinite Scrolling / Pagination
+SWR / Firebase Function / ARIA
+
+2FA / Firebase-Auth-To-Backend (Google github twitter facebook)
+VideoStreaming(Node)
+
+
+-----------DevOps------------
+CM - Chef,Puppet,Ansible
+CI - Jenkins,
+CT - SonarQube,Selenium,BrowserStack
+CM - Grafana,kibana
+CD - Puppet ,Ansible (Elastic Search)
+
+
+LATER
+-----------------------
+Java / Spring
+.net / c#
+React Native
+PHP
+Laravel
+Python / Django / Flask
+AppDevelopment
+ML
+AI
+C#
+.net

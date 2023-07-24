@@ -1,0 +1,48 @@
+=============== 1(31) ===============
+Thread :- It consists of 
+a.) Thread ID
+b.) Program Counter
+c.) Register Set
+d.) Stack
+
+Thread belons to same process ,share among each other their 
+code-setion,data-section & OS resources e.g. open files & signals.
+
+Thread have their own Register+Stack.
+
+MultiThreadProcess=(t1+t2+t3+...)+(Code+Data+Files) ==> Common
+
+Benefits:-
+1)Responsiveness:-
+Interactive app can allow a propg to continue running in case some other 
+portion is doing block blocking /lengthy operation. 
+2.) Resource Sharing :- Threads share process properties code, data,memory.
+3.) Economy :- 
+    => Altogether process creation need allocating memory & resources,bcoz thread share resources of process they belong.
+    => It is more economical to create & context-switch thread.
+4.) Utilization of MultiThreadProcess:-
+    => Thread in MultiThreadProcess architecture run in parallel on diff processor,
+        which increase benefit manifold, & increase concurrency.
+
+=============== 2(32) ===============
+Types of Threading:-
+a.) User Thread :- Support above the kernel and managed w/o kernal support.
+a.) Kernal Thread :- Support and managed directly by OS/kernal.
+
+Relationship b/w User & Kernal Thread
+a.)Many-to-One
+b.)One-to-One
+a.)Many-to-Many
+
+Hyperthreading:- In these system's processor core's resources become multiple logical 
+processors for performance. 
+It allow MultiThreading
+=============== 3(33) ===============
+fork or exec
+fork :- used to create separte,duplicate process.
+exec :- the program specified in parameter of exec() will replace the entire 
+    process- including all threads.
+
+
+=============== 4(34) ===============
+=============== 5(35) ===============

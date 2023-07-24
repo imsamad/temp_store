@@ -1,0 +1,16 @@
+gzip fileName fileName.gz
+
+Intact original 
+    gzip -c -9 compressedFilename.gz >> fileName
+
+Uncompress plus intact compressed.
+    gzip -c -d compressedFilename.gz >> fileName
+    gunzip -c compressedFilename >> fileName
+
+Read content
+    gzip -cd compressedFilename | less
+    gunzip -c compressedFilename | less 
+    zcat compressedFilename
+
+Compress Dir
+    gzip -r -9 compressedFilename.gz >> fileName

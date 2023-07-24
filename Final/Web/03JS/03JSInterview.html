@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript */
+      .container {
+        max-width: 780px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border: 1px solid red;
+        padding: 8px;
+        grid-gap: 8px;
+        border-radius: 4px;
+      }
+      .box {
+        text-align: justify;
+        padding: 8px 8px;
+        border: 1px solid gray;
+        border-radius: 8px;
+        /* color:wh */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container colorIntensity">
+      <div class="box">
+        <input name="color" value="blue" onChange="onchange()" id="color" />
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore
+        quisquam tenetur tempore culpa quos laudantium porro ab nam, nemo
+        laboriosam velit eaque illo a! Ducimus reprehenderit deserunt amet cum
+        officia.
+      </div>
+    </div>
+  </body>
+  <script>
+    //  arrPrePopulate();
+    //  timeout();
+    //  async();
+    //  moduleRev();
+    //  chaining().one().two();
+    // asi();
+    // parse();
+    // 'use strict';
+    // This();
+    // isInt();
+    // isAnagram();
+    // bigDiff();
+    // pallindrome();
+    // vowelFlip();
+    // objProp();
+    // flip();
+    // letVar();
+    function letVar() {
+      console.log("grade", grade);
+      console.log("name", name);
+      console.log("Xyz", xyz);
+      let name = "Abdus Samad";
+      grade = "MCA";
+      var grade = "BCA";
+    }
+    function flip() {
+      String.prototype.flip = function () {
+        let str = this.split(""),
+          end,
+          punc = /[?.!]/;
+        let len = str.length;
+        if (punc.test(str[len - 1])) {
+          end = str[len - 1];
+          str[len - 1] = "";
+        }
+        return str.reverse().join("") + end;
+      };
+
+      const str = "I m samad!";
+      console.log(str.flip());
+    }
+    function objProp() {
+      let box = {};
+      let bag = {
+        prop: "bag",
+        can: "box",
+      };
+      let can = {
+        prop: "can",
+        bag: "box",
+      };
+      box[bag] = "Monday";
+      box[can] = "Tuesday";
+      console.log(box);
+    }
+
+    function vowelFlip() {
+      const chk = (str) => {
+        str = str.split("");
+        const stack = [];
+        // Recored each vowel index and val
+        str.forEach((val, index) => {
+          if (/[aeiou]/.test(val)) {
+            stack.push({ index, val });
+          }
+        });
+        // swap vowels positions
+        for (let i = 0; i < stack.length; i++) {
+          str[stack[i].index] = stack[stack.length - i - 1].val;
+        }
+        str = str.join("");
+        console.log(str);
+      };
+      chk("javascript");
+    }
+    function pallindrome() {
+      const chk = (str) => {
+        str = str.toLowerCase();
+        const len = str.length;
+        // const f = str.slice(0, Math.floor(len / 2)),
+        //   l = str
+        //     .slice(Math.ceil(len / 2), len)
+        //     .split('')
+        //     .reverse()
+        //     .join('');
+
+        const f = str.substring(0, Math.floor(len / 2)),
+          l = str
+            .substring(len - Math.floor(len / 2))
+            .split("")
+            .reverse()
+            .join("");
+
+        return f === l;
+      };
+      console.log(chk("kaAk"));
+    }
+    function bigDiff() {
+      const chk = (arr) => {
+        const res = Array.from(new Set(arr))
+          .map((n) => parseInt(n))
+          .sort((a, b) => b - a);
+
+        return res[0] - res[res.length - 1];
+      };
+      const res = chk(["15", "1", "2", "3", "3", "4", "5", "0"]);
+      console.log("Res = ", res);
+    }
+    function isAnagram() {
+      const chk = (val1, val2) => {
+        const res1 = val1.toLowerCase().split("").sort().join("");
+        const res2 = val2.toLowerCase().split("").sort().join("");
+        return res1 === res2;
+      };
+      console.log(chk("abdc", "acbD"));
+    }
+    function isInt() {
+      const chk = (val) => !isNaN(val) && parseInt(val) === val;
+      console.log(1.25, chk(1.25));
+      console.log(125, chk(125));
+    }
+    function This() {
+      const circle = {
+        radius: 10,
+        cir: function (show = false) {
+          if (show) console.log("Circumference Normal", this);
+          const res = 2 * Math.PI * this.radius;
+          return res;
+        },
+        area(show = false) {
+          if (show) console.log("Area Expression", this);
+          const res = Math.PI * this.radius * this.radius;
+          return res;
+        },
+        dia: (show = false) => {
+          if (show) console.log("Diameter Arrow", this);
+          const res = 2 * this.radius;
+          return res;
+        },
+      };
+      circle.cir(true);
+      circle.area(true);
+      circle.dia(true);
+    }
+    function parse() {
+      let res = ["1", "7", "2555555"].map((val, index) => parseInt(val, index));
+      console.log("Result :- ", res);
+    }
+    function asi() {
+      let a = {
+        a: 123,
+      };
+      [a].forEach(function (x) {
+        console.log(a);
+      });
+    }
+    function chaining() {
+      console.log("chainign");
+      one = function () {
+        console.log("one");
+        return this;
+      };
+      two = function () {
+        console.log("two");
+      };
+      return this;
+    }
+
+    function moduleRev() {
+      let myModule = (function () {
+        let _data = [];
+        let _add = () => {
+          console.log("Add");
+        };
+        let _delete = () => {
+          console.log("_delete");
+        };
+        // This is only public.
+        let _render = () => {
+          console.log("render");
+        };
+        return { render: _render };
+      })();
+      myModule.render();
+      myModule._delete();
+      myModule._add();
+    }
+
+    function async() {
+      let num = 0;
+      async function increment() {
+        console.log("Pre Inside ", num);
+        //   num += await 2; // Put o aside and run rest of fun/stack later
+
+        num = 2 + (await 2);
+        console.log("Inside ", num);
+      }
+      increment();
+      num += 1;
+      console.log("Outside ", num);
+    }
+
+    function timeout() {
+      console.log("a");
+      setTimeout(function () {
+        console.log("b");
+      }, 2);
+      setTimeout(function () {
+        console.log("c");
+      }, 6);
+      setTimeout(function () {
+        console.log("d");
+      }, 0);
+      console.log("e");
+    }
+    function arrPrePopulate() {
+      let a1 = Array.from({ length: 5 }, (n) => Math.random());
+      console.log("Array1", a1);
+      let a2 = new Array(5).fill(25);
+      console.log("Array2", a2);
+    }
+  </script>
+</html>

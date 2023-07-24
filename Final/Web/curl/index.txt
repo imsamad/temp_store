@@ -1,0 +1,22 @@
+Download 
+curl -o fileName url
+
+Auto-download
+curl -O url
+
+GET
+curl --data "title=heading&body=dessss" https://apicom.com/
+
+PUT
+curl -X PUT -d "title=newTitle" https://apicom.com/3
+
+DELETE
+curl -X DELETE https://apicom.com/3
+AUTH
+curl -u brad:123456 url
+
+Follow Redirect
+
+curl -l http://google.com
+
+cu

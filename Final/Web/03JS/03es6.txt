@@ -1,0 +1,352 @@
+let:-
+When variable is declard using var ,the scope can be global or local.
+Global scope:-outside function.
+Localscope:- inside function.
+
+let/var :- Both are same,except these variables are block-scoped.
+block:- Denoted by {}.
+
+var temp="10"
+window.temp="10"
+
+let temp="10"
+window.temp=undefined.
+
+    for (var i = 0; i < 5; i++) {
+      setTimeout(function () {
+        console.log(i);
+      }, 1000);
+    }
+
+
+Here i is of global scope.After loop i value is 5.
+When cb fun is passed in setTimeout executes.,they reference the same variable i value.
+
+Overcome :-
+Create a new scope so that each cb function references a new variable.
+To create a new scope create a new function.
+for (var i = 0; i < 5; i++) {
+    (function (j) {
+    setTimeout(function () {
+        console.log(j);
+    }, 1000);
+    })(i);
+}
+
+Or
+let create a new variable in each iteration.
+for (let i = 0; i < 5; i++) 
+    setTimeout(()=> console.log(i),1000);
+
+
+var x = 0;
+setTimeout(function () {
+    console.log((x = x + 1));
+}, 1000);
+setTimeout(function () {
+    console.log((x = x + 1));
+}, 1000);
+setTimeout(function () {
+    console.log((x = x + 1));
+}, 1000);
+setTimeout(function () {
+    console.log((x = x + 1));
+}, 1000);
+setTimeout(function () {
+    console.log((x = x + 1));
+}, 1000);
+1,2,3,4,5
+
+Temporal death zone:- It start from start of block until thelet declare is processed
+or 
+A variable declared by the let keyword has a so-called temporal dead zone (TDZ). 
+The TDZ is the time from the start of the block until the variable declaration is 
+processed.
+or
+In other words, it is the location where you cannot access the let variables before 
+they are defined.
+
+let vs var
+for (var i = 0; i < 5; i++) {
+	console.log("Inside the loop:", i);
+}
+
+console.log("Outside the loop:", i);
+
+i have global scope.
+
+for (let i = 0; i < 5; i++) {
+	console.log("Inside the loop:", i);
+}
+
+console.log("Outside the loop:", i);
+
+i has local scope.
+
+Uncaught ReferenceError: i is not defined
+
+
+const :- 
+const obj=Object.freeze({
+    xyz:'jhbdwjh',
+})
+
+Can add property,but obj.xyz => wrong/immutable.
+
+Default paramets:-
+------------------
+------------------
+Skip some argiments/parameters
+function createDiv(height = '100px', width = '100px', border = 'solid 1px red') {
+    let div = document.createElement('div');
+    div.style.height = height;
+    div.style.width = width;
+    div.style.border = border;
+    document.body.appendChild(div);
+    return div;
+}
+
+createDiv(undefined,undefined,'solid 5px blue');
+
+The parameter can take a default value which is a result of a function :-
+const today= () => (new Date()).toLocaleDateString("en-US");
+function date(d = today()) {
+    console.log(d);
+}
+date();
+
+Required arguments :- 
+function requiredArg() {
+   throw new Error('The argument is required');
+}
+function add(x = requiredArg(), y = requiredArg()){
+   return x + y;
+}
+
+add(10); // error
+add(10,20); // OK
+
+3.)Using other parameters in default values
+The parameter list seems to have its own scope. 
+
+function add(x = 1, y = x, z = x + y) {
+    return x + y + z;
+}
+
+console.log(add()); // 4
+
+
+The arguments object :- 
+The value of the arguments object inside the function is the number of actual arguments 
+that you pass to the function.
+
+add(10); ==> 1
+add(10, 20); ==> 2
+add(10, 20, 30); ==> 3
+
+
+Parameters vs arguments=>
+Parameters => what you specify in the function declaration
+Arguments => what you pass to the function.
+
+    const sum = (...args) => {
+   return args
+		.filter(function (e) {
+			return typeof e === "number";
+		})
+		.reduce(function (prev, curr) {
+			return prev + curr;
+		});
+    };
+    console.log(sum(1, 2, 3, 4, 5));
+
+
+arguments vs  ...rest
+
+function sum() {
+	return Array.prototype.filter
+		.call(arguments, function (e) {
+			return typeof e === "number";
+		})
+		.reduce(function (prev, curr) {
+			return prev + curr;
+		});
+}
+
+
+var showNumbers = new Function('...numbers', 'console.log(numbers)');
+showNumbers(1, 2, 3);
+
+
+Spread operatorr:-
+--------------------
+The spread operator unpacks the elements of the odd array.
+the rest parameter (...) collects the arguments 3,4 and 5 into an array args.
+
+let chars = ['A', ...'BC', 'D'];
+console.log(chars); // ["A", "B", "C", "D"]
+
+
+for...in vs for..of
+The for...in iterates over all enumerable properties of an object. I
+The for...of iterates over all iterable properties of array or Map.
+
+String 
+-------
+let strWithBacktick = `Template literals use backticks \` insead of quotes`;
+
+
+Destructur Assignment
+---------------------
+Swapping variable.
+let a = 10, 
+    b = 20;
+
+[a, b] = [b, a];
+
+console.log(a); // 20
+console.log(b); // 10
+
+
+let [, , thirdItem = 0] = getItems();
+console.log(thirdItem); // 0
+
+
+let a, b;
+[a = 1, b = 2] = [10];
+console.log(a); // 10
+console.log(b); // 2
+
+Not iterable
+function getItems() {
+    return null;
+}
+let [x = 1, y = 2] = getItems();
+Return value is not iterable.
+let [a = 10, b = 20] = getItems() || [];
+
+
+
+Object Destructuring
+---------------------
+let { firstName, lastName, middleName = '', currentAge: age = 18 } = person;
+
+const fun=()=>null;
+let {fname,lname}=fun()
+
+TypeError: Cannot destructure property 'firstName' of 'getPerson(...)' as it is null.
+
+let {fname,lname}=fun()||{}
+===> undefined
+
+Import module
+-------------
+export { add as sum };
+import {default as quicksort,sum as total} from './math.js';
+
+
+Arrow function :- 
+------------------
+Syntax Error
+let multiply = (x,y) 
+=> x * y; 
+let multiply = (x,y)=>
+x * y; 
+First, in the arrow function, the this, arguments, super, new.target are lexical.
+Second, an arrow function cannot be used as a function constructor. If you use the new 
+keyword to create a new object from an arrow function,
+
+Does not have arguments object.
+
+
+PROMISE/
+---------------
+
+Promise is an object that return a value whuch u hope to recieve in the future,
+To handle async operations.
+A promise has three states:-
+Pending
+Fullfilled 
+Rejected
+
+Promise constructor accept a function as arguments executer.
+executer function have two arguments 1.) resolve and reject by convention.
+
+PromiseStatus=>pending/resolved/rejected
+PriomiseValue => undefined/ resolve()
+
+
+then() 
+then method is used to schedule a cb to executed when promise resolved.
+
+promiseObject.then(onFulfilled, onRejected).finally(()=>{});
+or
+promiseObject.then(onFulfilled).catch(err=>{});
+
+masterJS.then(
+    undefined,
+    reason => console.log(reason)
+);
+
+
+Promise chaining:-
+Calling successisvely then function.
+Value return by then() also is Promise instance.
+
+Promise.all()
+-------------
+The Promise.all() static method accepts a list of Promises and returns a Promise that:
+ - resolves when every input Promise has resolved or
+ - rejected when any of the input Promise has rejected.
+
+If all the input promises resolve, the Promise.all() static method returns a new Promise 
+that resolves to an array of resolved values from the input promises,in an iterator 
+order.
+
+If one of the input promises rejects, the Promise.all() returns  a new Promise that 
+rejects with the rejection reason from the first rejected promise. The subsequent 
+rejections will not affect the rejection reason. The returned Promise also handles 
+the rejections silently.
+
+Promise.race()
+--------------
+The Promise.race() static method accepts a list of promises and returns a promise that 
+fulfills or rejects as soon as there is one promise that fulfills or rejects, with the 
+value or reason from that promise.
+Promise.race(iterable)
+
+The name of Promise.race() implies that all the promises race against each other with a 
+single winner, either resolved or rejected.
+
+Promise Error Handling
+----------------------
+Error return from reject in Promise ,would be handled by catch  handler of promise,
+Outside of Promise ,if error is throw out then will be handled in try/catch ,catch block.
+
+If you throw an error inside the promise, the catch() method will catch it, 
+not the try/catch.
+
+If an error occurs and you don’t have the catch() method, 
+the JavaScript engine issues a runtime error and stops the program.
+
+
+Array-of
+--------
+const arr=new Array(2)
+ar.length===2
+arr[0]=undefined
+
+const arr=new Array('2')
+ar.length===1
+arr[0]=2
+
+JavaScript Array.of() polyfill
+
+If you execute the JavaScript in the environment that doesn’t support the  
+Array.of() method, you can use the following polyfill:
+
+if (!Array.of) {
+    Array.of = function() {
+        return Array.prototype.slice.call(arguments);
+    };
+}

@@ -1,0 +1,19 @@
+Link is used in doing client-side route transition b/w pages , similiar in SPA.
+Any Link in the veiwport (initially or later by scroll) will be pre-fetched using SSG,
+but data corresporoutesnd to SSR  will not be pre-fetched
+
+Catch -ALL [...all]
+- /slug => 404    
+Optional Catch -ALL [...all] 
+- /slug => result in slug and router.query==={}
+
+
+Shallow Routing:-
+Allow to change URL witthout running getStaticProps ,getServerSideProps or getInitialProps
+U will recievce updated pathname ,query on router object
+
+router.psh(url,null,{shallow:true})
+
+Page route state updated not page wont get replaced
+
+It works only for same page URL.

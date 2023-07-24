@@ -1,0 +1,55 @@
+
+
+
+mkdir ~/.ssh/
+touch authorized_keys
+chmod 600 authorized_keys
+
+Change SSH default port
+
+ufw default deny incoming
+ufw default allow outgoing
+
+ufw allow 2222
+ufw allow 443
+ufw allow 80
+
+ufw enable
+
+
+adduser non-root
+
+vi /etc/ssh/sshd_config
+PermitRooTLogin no
+PubkeyAuthentication yes
+PasswordAuthentication no
+
+systemctl restart sshd
+
+ssh name@ip_address -p 6666 -i /path_to_private_keys
+
+
+sudo apt install fail2ban
+
+
+
+
+
+
+
+
+1.) sudo apt update 
+2.) sudo apt install openssh-server
+3.) create user
+4.) log out of server
+5.) copy client Public key to server
+6.) vi /etc/ssh/sshd_config
+    PermitRooTLogin no
+    PubkeyAuthentication yes
+    PasswordAuthentication no
+    
+    systemctl restart sshd
+
+7.) ssh username@server_id
+    eval `sh-agent -s`
+    ssh-add ~/.ssh/id_rsa

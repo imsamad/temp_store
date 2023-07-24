@@ -1,0 +1,7 @@
+docker node ls
+docker stack deploy -c docker-compose.yml appName
+
+docker stack ls
+docker stack services appName
+docker stack ps appName
+docker service ls

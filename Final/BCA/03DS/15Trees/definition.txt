@@ -1,0 +1,5 @@
+Trees :- collection of node ,where one of the node is root & rest of node are divided as subjoint sets
+    where each subset is tree again ,each node except root node consist of incoming
+        vertex.
+No of binary tress in no. of nodes :- 2nCn/n+1 (Catalan No.)
+Max Height Trees :- 2^n-1

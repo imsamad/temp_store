@@ -1,0 +1,47 @@
+Shell
+    It is a program that provide traditional text-based UI for linux OS.
+
+Print all env
+    printenv OR env
+
+Print all shell
+    set
+Print specific shell variable
+    set | grep MY_VAR
+
+Create child shell process
+    bash
+
+Set as shell var
+    MY_VAR=sdedwe
+
+Set already existed shell varianle as env var
+    export MY_VAR
+
+Set env var back as shell variable
+    export -n MY_VAR
+
+UNSET both
+    unset MY_VAR
+
+Set both as env & shell variable.
+    export MY_VAR=ddcsf 
+
+Once terminal close above set env_var will be deleted,
+Configuration file for bash shell is located in multiple files
+
+/etc/profile
+~/bash_profile
+~/bash_login
+~/.profile
+/etc/bash.bashrc
+~/.bashrc
+
+set on  ~/.bashrc
+        /etc/bash.bashrc
+
+
+
+PATH variable
+
+All cmd are executable files, placed in directories 

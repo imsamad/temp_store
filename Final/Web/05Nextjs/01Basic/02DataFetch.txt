@@ -1,0 +1,85 @@
+Data-Fetching
+
+getStaticProps:- Fetch data at build time.
+The data produced from this function is stored as seperate JSON file.
+When we navigate to page thats been pre-rendered or have getStaticProps,Next.js will Fetch
+this data and pass as page component props.
+Used if data need to render the page is avalaible before hand at build time.
+Data is not user-specified , can be cached publicly.
+It generated HTML & JSON of each page.
+ctx :{
+    params:
+    preview:true/false,
+    previewData:,
+    locale,
+    locales,
+    defaultLocale
+}
+return {
+    props:
+    revalidate:nth,
+    notFound:true/false,// Not require in falback:false 
+    redirect:{
+        destination:'',
+        permanent:true,false
+    }
+}
+
+
+ISR:-
+It allows to create or update static pages after have been built.
+Request to page that been pre-rendered will show cached page
+Subsqent req within revalidate window second will also show cache version.
+After revalidate window also still show cache version , but in bg start
+a regenration of page.
+Once the regenration process completed .Next.js will invalidate the cache 
+and start serving updated page, if regenration page fails ,old page will stay unaltered keep
+serving that.
+If req is mode to path that not been generated ,Next.js will server-render the page,
+on subsqquent request in  future will server static file from cache.
+
+
+getStaticPaths :- Specify dynamic routes to pre-render pages at build time.
+Why???
+If page have dynamic routes, have to pre-render or export getStaticProps ,so we have to define the list routes 
+(paths) that has to be pre-render.
+
+return {
+    paths:[
+        { params:{id:1,slug:'slld', ...} },
+        { params:{id:1,slug:'slld', ...} },
+        { params:{id:1,slug:'slld', ...} },
+        { params:{id:1,slug:'slld', ...} },
+    ],
+    fallback:true,false   
+}
+fallback:false
+If the path not returend by getStaticPaths will result in 404 page
+
+fallback:true
+In this the if brand new path is hitted  then next.js will not result in 404 page ,insted it will first server 
+fallback version of page , In bg it will statically generate HTML and JSON of the page.
+When thats done browser receive the JSON as page props and populate the page ,or page will be renderd.
+Or fallback page will be swapped out with full proper page.
+
+In fallback version page props willbe empty , route.isFallback === true
+
+fallback:block
+If request is made to page thats not been pre-renderd, Next.js will SSR on first request and return 
+generated HTML , from user-perspective page will transition from "the browser is requesting the page" 
+to "page is fully loaded" , no flash of loading or isFallback,
+At the same time Next.js will this to the list of path that would be pre-render on future request.
+ 
+getServerSideProps :- Fetch data at eah request
+If page is requested directly, getServerSideProps run at request time and the page will be pre-rendered at req time,
+
+But if page is requested on client-side using Link or Router, thenb Next.js will sned API call to server 
+whcih getServerSideProps and return JSON containg result of the function , and the JSON will be used torender 
+the Page
+
+
+ISR=Incremental Static Regeneration
+Extend  benefit of Static side generation with flexibility of SSR(Server-Side Rendering) 
+Updating alrady static page w/o rebuilding pages/site
+   When a request is made to a path that hasn’t been generated, Next.js will server-render the page on the first request. Future requests will serve the static file from the cache.
+

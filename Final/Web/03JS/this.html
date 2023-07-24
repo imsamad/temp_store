@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    class myClass {
+      constructor(name) {
+        this.name = name;
+      }
+      arrFun = () => {
+        console.log("arrfun ", this);
+      };
+      eFun = function () {
+        console.log("eFun ", this);
+      };
+      normFun() {
+        console.log("normFun ", this);
+      }
+      ret() {
+        return {
+          anchor: this,
+        };
+      }
+    }
+    const my = new myClass("imsamad");
+    my.normFun();
+    my.arrFun();
+    my.eFun();
+    console.log(my.ret().anchor);
+  </script>
+</html>

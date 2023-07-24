@@ -1,0 +1,41 @@
+Type of selectors
+1.) Simple Selectors
+	Type
+	Class
+	ID
+	Universal
+2.)Combinators
+	Descenndent div p{}
+	Direct Child div > p{}
+	Adjacent Sibling div + p{}
+	General Sibling Selectors div ~ p{}
+3.)Attribute
+	A[attr]
+	A[attr=xyz]
+	A[attr^=val] begins with
+	A[attr|=val] Begins with or first in dash seperaed list
+			A[alt|="image"] => True <img alt="image-of "/>  <img alt="image of "/>
+	A[attr$=val] ends with value
+	A[attr*=val] occurs anywhere
+	A[attr~=val] val matches attr in space seperated list
+			A[alt~="of"] => FALSE A[alt~="abc"] => TRUE <img alt="image-of abc xyz"/>
+4.)Pseudo-classes 
+	:first-child
+	:last-child
+	:nth-child()
+	:nth-of-type()
+	:nth-last-child()
+	:nth-last-of-type()
+	:only-child
+	:only-of-type
+	:first-of-type
+	:last-of-type
+	:empty
+	:not
+5.)Pseudo elements
+	::after
+	::before
+	::first-letter
+	::first-line
+	::selection
+	::placeholder

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    console.log("Startig the code");
+    setTimeout(function cb() {
+      console.log("Timed function");
+    }, 3000);
+    console.log("Main thread is blocked");
+
+    let currentTime = new Date().getTime();
+    let finishTime = currentTime;
+    while (finishTime < currentTime + 10000) {
+      finishTime = new Date().getTime();
+    }
+
+    console.log("Thread released");
+  </script>
+</html>

@@ -1,0 +1,21 @@
+bin
+    contains common cmds required for administration
+boot
+    Have files need to start system including Linux kernel.
+dev
+    device file refer to varus harware on system.
+etc
+    config of system is stored which effect overall behaviour of machine.
+    like apache nginx config.
+lib
+    have lib needed by essential binaries.
+media 
+    mouthpoint for external devices
+mount 
+    tempoririy mount devices
+opt
+    stored additional softare
+proc
+    secial file represnt process on system.
+root
+    super user dir

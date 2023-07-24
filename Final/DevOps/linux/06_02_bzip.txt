@@ -1,0 +1,16 @@
+bzip2 fileName
+
+Intact
+    bzip2 -c fileName >> newFileName.bz2
+
+Decompress 
+    bzip2 -d fileName.bz2
+    bunzip2 fileName.bz2
+    bzip2 -dc fileName.bz2 >> newFileName
+    bunzip2 -c fileName.bz2 >> newFileName
+
+Read
+    bzip2 -dc fileName.bz2 | less
+    bunzip2 -c fileName.bz2 | less
+    bzcat fileName
+

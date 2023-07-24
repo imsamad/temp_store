@@ -1,0 +1,279 @@
+﻿DBMS:-It refer to technology of storing & retriving data with utmost efficiency along with appropriate security measures.
+It provides an interface to carry out operation like CRUD.	
+In case of multiple user it protect data consistency.
+Disadvantage of File System:-
+    • Data redundancy
+    • Data inconsistency
+    • Difficulty in access data
+    • Isolation
+    • Security Problems
+    • Atomicity Problems
+    • Concurrent-Access Anomalies
+    • Integrity Problem
+DBMS vs File System
+Security
+Abstract view
+Crash recovery mechanism
+concurrent access
+DBMS concept
+				DBMS Architecture
+It is the representation of how the DBMS is designed.
+DBMS arch. depends on how the the users are connected to DB to get their request done.
+Types:- 1.) 1-tier  2.) 2-tier 3.) 3-tier
+1-tier
+    • The DB is directly available to user. Here, user directly sit on DB.
+    • It is used in local  or development environment, where programmers can directly communicate with the database for the quick response.
+    • e.g. Installing MySqli on system to practice queries.
+2-tier
+    • It is similiar to basic client-server model.
+    • The application on client side established a connection with the server in order to communicate with the DBMS.
+    • The server side is responsible for providing query processing & transaction management functionalities.
+    • API’s like ODBC,JDBC are used for communication.
+Advantage:-
+Maintenance & understanding is easier,compatible with existing system.
+Disadvantage:-
+Gives poor performance when there is large no. of user bcoz of lack of middleware check & balance.
+3-tier
+    • It has another layer b/w server and client.
+    • Here , the client does not communicate with application server which further communicate with the database.
+    • And,then query processing & transaction management takes place.
+    • This type of architecture use in large web applications.
+Advantage
+1.)Date Integrity:-Since it does not allow direct interaction  of user to DB ,data corruption can be avoided.
+2.)Security:- Bcoz of presence of middle layer it can avoid interaction of  unauthorised user.
+3.)Enhanced scalability:- Due to global deployment of app. server no need to set up individual connection b/w client & server.
+Disadvanteges
+    • Increased complexity of implementation. 
+    • Becomes difficult to set up commmunication for noob.
+					DATA MODELS
+Data model is modelling of the data description,data semantics & consistency related constraints of the data.
+It provide conceptual tool to describe database design.
+Type of Data Model
+1.)ER model 2.) Semistructured DM 3.) ER model 4.)Object-based DM
+ER model:-It is the logical & conceptual modeling of data in the form object caled entity & relation among them.
+Relational Model:- This type of model describe the data in the form of rows & columns within the table.
+Tables also called Relations.
+This is widely used model.
+
+				DATA INSTANCES
+    • The stats of stored/operational  data in DB at any instances of time.
+    • It contains a snapshot of database
+    • It keep changes over time.	
+    • DBMS ensure its every data instances is in valid state by imposing relative constraints,valiadation.
+				DATA INDEPENDENCE
+				DATA MODEL SCHEMA
+Schema:-The overall design of database is called schema.
+    • It is the skeleton structure that represents the logical view of entire DB.
+    • It define how the data is organised & relation among them are associated.
+    • It formulated all the constraints that are to be applied on data.
+    • It’s the database designers who design the schema to help programmers understand the database and make it useful.
+ Two forms of Database schema:-
+a.)Physical Databse Schema:-
+    • It pretains to actual storage of data and its forms of storage like indices & files.
+    • It defines how the data will be stored on secondary storage devices.
+ b.)Logical Database schema:-
+It is the defines all the logical constraints 
+			
+			DATEBASE LANGUAGE
+    • A DBMS has language to execute queries.
+    • DBL use to create,read,update & delete the data in DB.
+     Type of DBL:-
+1.)DDL   2.)DML    3.)DCL     4.)TCL
+1.)DDL(Data Definition Language)
+    • It is used to define database structure or pattern.
+    • Create schema ,tables, indexes & constraints etc. in the database.
+    • Task come under DDL:-
+    1. Create:-To create objects in db.
+    2. Alter:-To alter the str. of db.
+    3. Drop:-To delete objects in db.
+    4. Truncate:-To remove record from table
+    5. Rename:-T rename obejct.
+2.)DML
+    • It is used to accessing & manipulating data in DB.
+    • It handles user request.
+    • Task come under DML.								
+f.	Select
+g.	Insert
+h.	Update
+i.	Delete 
+j.	Merge (upsert)
+3.)DCL
+    • Grant privilege to user using GRANT statement.
+    • In the same way revoke the privilges by using REVOKE statemnt.
+    • Task under DCL
+    6. GRANT
+    7. REVOKE
+4.)TCL
+    • Manage transactions in DBMS
+    • Manage the changes made by DML .
+    • Task under TCL
+    8. COMMIT :-Save the changes
+    9. SAVEPOINT:-Set a point in transaction to rollback later.
+    10. ROLLBACK:-Restores since last commit.
+					
+				ER MODEL
+    • A non-technical method works on conceptual level based on real-world perception.
+    • It is high-level model.
+    • It providea logical & standard way to design data & its relation.
+    • It is diagramatic representation of data even can be understood by non-techinal user.
+    • Components:- It consist of collections of object called entites and relations among them.	
+
+Entity:-It is thing or object in the real-world which is distiguishable from each 	other from each other.
+	Can not be represented in ER model.
+	Represned in Table as Row/Tuple.
+1.)Weak Entity:- 
+    • An entity that is depend on other entity called Weak Entity.
+    • Repredented by Double Reactangle
+    • Load=>Installment (W.E).
+Entity Set:-
+    • Set of same type of entity.
+    • Can be represented by ER by reactangle.
+    • Represented as Table in 
+Attributes:-Each entity is described by properties called Attribute.
+Domain:-Each attribute have set of permitted /pre-defined value.
+Relationship:-
+    • It is an association b/w two or more entities of same or different entity set.
+    • No representation in ER model.
+    • In Relational Model depicted by a Table.
+Relationship Type/Set :-
+    • A set of similiar type of relationship.
+    • In ER diagram represented by Diamond.
+    • In relational Model by a separate table or separte column(Foreign Key).
+    • Every RT/RS have three component
+    • i)Name ii.)Degree iii.)Cardinality Ratio/ Participation Constant/Mapping Constraints
+Degree:-It means no. of entities asociated in a relationship set.
+Unary Bonary Ternary..... n-ary
+Cardinality Ratio/ Participation Constant/Mapping Constraints:-Expreses the no.  entites to which other entity can be related via a relationship.
+For binary they following  types:-
+    11. 1:1:-When one entity from LHS & one entity from RHS are associated in relationship.
+    12. 1:N:When one entity from LHS & many entity from RHS are associated in relationship.
+    13. N:1:When many entity from LHS & one entity from RHS are associated in relationship.
+    14. N:N:When many entities from LHS & many entities from RHS are associated in relationship.
+					KEYS
+This is one attribute or set of attribute which can uniquely identify a tuple in a row.
+Candidate Key - The set of keys that is minimal and can uniquely identify any data row in the table.
+Primary Key - The primary key is selected from one of the candidate keys and becomes the identifying key of a table. It can uniquely identify any data row of the table.
+Super Key - Super Key is the superset of primary key. The super key contains a set of attributes, including the primary key, which can uniquely identify any data row in the table.
+Foreign Key:-This is colum of table which is used to point the primary key of another table.
+GENERALISATION:-It is like bottom-up approach in which two or more low-leve entities are combined to form high-level entity.
+Here the entites are combined together to give a more generalised view 
+	
+
+Specialization:-It is top-bottom approach in which higher level entites is decomposed into low-levelentites.
+			
+			Reduction of ER diagram to Table
+In DBMS entity set or relationship set can be represented in Tabular Form.
+Entity Type become Table
+All single-valued represented using column.
+A key attribute represented using primary key.
+Multi-valued attribute represented by separate table.
+Composite attribute represendted using Components
+Derived attribute are not 	considered in the tables.
+
+			RELATIONAL DATA MODEL
+    • Data is organised in Tables and relation is maintained by common field among these tables.
+    • It represents the databse as a collection of relations.
+    • A relation is nothing but a table of values.
+    • Most widely used data model to store and process data.
+    • It is simple & posses capability to process data with storage efficiency.
+
+CONCEPTS:-
+Table:-In RM , relation is saved in the format of table.
+	A table has row & column.
+Relation Instances:- A finite set of tuple in relational DB represents R.I.
+			They do not have duplicate tuples
+Relation Schema:- It describe relation name(Table),set of attributes/column/field name & their associated domian.
+Relation Key:-Each tuple has one or more attribute ,which can uniquely identify that tuple.
+Attribute Domain :- Pre0defined /permitted 
+
+Constraints:-Every relation has a condition which must be hold for it to be valid.
+In ER model we do not have such features. 
+These consitions are called Relational Integrity Constraints.
+3 types of RIC:-
+1.)Key/Uniqueness  2.)Refrential Integrity 3.)Domian 4.)Entity Integrity
+a.) Key Constraints/Uniqueness Constraints:
+These are uniqueness constraints since they ensure that every tuple in the relation must be unique.
+-Every tuple/row should have one attribute or  set of attribute which can identify each tuple uniquely.
+Most of the time it would be PRIMARY KEY.
+No two tuple should have same key.
+b.) Domain Constraints:-They are attribute level constraints.
+Specified the valid set of values for permitted for an attribute to inserted.
+Here these usually include datatype check,atomic values(smallest indivisble unit) 
+c.) Refrential Integrity Constraints:-
+It is specified between two table/relations.
+When an attribute of table/relation can take values from other attributes of same relation or other relation.
+REFRENCING TABLE => Student
+REFRENCED TABLE=>COURSES
+d.)Entity Integrity Constraints:-It specify that no primary can take null values.
+
+
+			FUNCTIONAL DEPENDENCY
+It is the relation that exist b/w attributes.
+Mostly is exist b/w prime to non-prime atributes.
+a=>b
+a=>determinent
+b=>dependent
+
+				NORMALISATON
+Redundancy:-Storing same data multiple times unnecessarily in DB.
+Disadvantages of redundancy:-
+1.)
+a.) Insertion:-When certain data (attribute) can not be inserted ,without the prserve of other.
+b.) Deletion:-If deletion of som e attribute cause the deletion of other too. 
+c.)Update Anomalies:-To update a single piece of data we have to update all other data too.
+2.)Increase in DB size & increase in processing time.
+3.)Data inconsistency.:-When same redundant data values changed
+Way:-F.D. is required tackle all above Disadvantages.
+Normalisation:-It is the process of organising data by removing redundancy from relation or relation set.
+ It divides the larger table in small table and link them via a relation.
+Four type of NF:- 1.)1-NF 2.)2-NF 3.)3-NF 4.)4-NF
+1.) 1-NF:-
+Every cell must have an atomic value(smallest indivisible value).
+Order of row & column is insignificant.
+Every column should have unique name.
+2.)2-NF:-
+It must be in 1-NF.
+It must be free from Partial Dependency.
+Partial Dependency:-When non-prime attribute is not entirely dependent on whole candidate key rather it depend on proper subset of candidate key. subset of candidate key 
+3.)3-NF:-
+It must be in 2-NF.
+It must be free from Transitive Dependcy:-
+Transitive Dependecy:-When a non-prime is F.D. on non-prime.
+Shortcut:-
+Every F.D from a=>b
+a.)Super key
+ b.)b is prime attribute
+
+4.)BCNF:-When a non/prime or prime start finding a prime attribute.
+Shortcut:-
+In every F.D. a=>bi.)a is super or candidate key.
+
+			RELATIONAL DECOMPOSITION
+When relation is not in prope N.F. then decomposition is required.
+In a DB, it is decomposed into multiple table and are linked together.
+It is used to eliminate some of the problems of bad design like redundancy,analmoles,inconsistency.
+		Types of decomposition:-
+a.)Lossless decomposition b.)Dependency Preserving Decomposition.
+Lossless decomposition:-This property ensure no extra generation of tuples & no loss of tuple during deomposition.
+It is mandatory property.
+Suppose a relation R s decomposed into R1 & R2 , this decomposition will be lossless iff,
+Natural join of R1 & R2 gives back R
+
+
+Dependency Preserving:-
+If a table R having F.D. set F , on decomposition into R1 & R2 such that F1 & F2 is F.D. respectively.
+F1belong to f
+F2 belong to F
+--------------------
+F1 union F2 give F.
+In D.B. atleast one decomposed table must satisfy every F.D.
+MULTIVALUES DEPENDENCY:-For a relation to be in MVD there must be three attribute atleast present in Relation.
+In this scenario two inedependent attribute depnend on same attribue.
+Suppose there is a bike manufacturer company which produces two colors(white and black) of each model every year.
+Here columns COLOR and MANUF_YEAR are dependent on BIKE_MODEL and independent of each other.
+In this case, these two columns can be called as multivalued dependent on BIKE_MODEL.
+BIKE_MODEL   →  →  MANUF_YEAR  
+BIKE_MODEL   →  →  COLOR  
+This can be read as "BIKE_MODEL multidetermined MANUF_YEAR" and "BIKE_MODEL multidetermined COLOR".
+---------------------------------------------------------------------------------------
+JD- if LLD then JD also.

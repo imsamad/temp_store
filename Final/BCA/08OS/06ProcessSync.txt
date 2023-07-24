@@ -1,0 +1,41 @@
+=============== 1(56) ===============
+Concurrent access of shared region of memory of two more 
+process cause data inconsistency.
+
+
+=============== 2(57) ===============
+Citical section Problem:-
+Each process has a section of code called Critical Section.
+in which process may be changing common variable,update table ,files & so on.
+When one process is ececuting in its critical section no other process is to be allowed to execute in that critical-section.
+--------------- OR ---------------------
+It is to design the protocol that the process can use to cooperate.
+
+CriticalSection :- Every process must request permission to enter CriticalSection.
+Entry Section :- The section of code implementing this request called Entry Section.
+Exit Section :- Critical section may followed by Exit Section.
+Remainder :- The remainder code is remainder section.
+
+Entry Section + CriticalSection+ExitCode+Remainder.
+
+do{
+    entry_section
+        critical_section
+    exit_section
+        remainder_section
+}while(TRUE)
+
+
+
+=============== 3(58) ===============
+=============== 4(59) ===============
+=============== 5(60) ===============
+=============== 6(61) ===============
+=============== 7(62) ===============
+=============== 8(63) ===============
+=============== 9(64) ===============
+=============== 10(65) ===============
+=============== 11(66) ===============
+=============== 12(66) ===============
+=============== 13(67) ===============
+=============== 14(68) ===============

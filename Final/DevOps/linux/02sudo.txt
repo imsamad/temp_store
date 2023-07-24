@@ -1,0 +1,72 @@
+sudo vi /etc/sudoers
+sudo visudo
+/*
+timestamp_timeout=[ 40 | -1 ]
+imsamad ALL=(ALL) NOPASSWD=ALL
+*/
+sudo -i => Login as sudo/root
+su - => Login as sudo/root
+su imsamad => Login as imsamad
+sudo -k => Kill session
+sudo passwd = Change/Creae password of root 
+sudo passwd userName => Change password of userName 
+sudo passwd  => Change password of currently logged in use 
+Lock passswod
+sudo paswd -l root => Delete root user or Delete root pwd   
+
+sudo passwd -l 
+    Lock user password but can login with SSH ,to disable the account, administrators 
+    should use usermod --expiredate 1 (this set the account's expire date to Jan 2, 1970). 
+    Users with a locked password are not allowed to change their password.
+
+sudo passwd -d <username>
+
+sudo adduser <user_name>
+
+sudo => Sudo Group members can execute any type of cmd
+
+groups => List out all the groups of which currently logged in user is member of.
+
+sudo usermod -aG sudo user1 => Make user1 part of sudo group. 
+
+
+Lecture - 05
+
+sudo cat /etc/paswd => List out all the users an  sudo vi /etcc/passwd ===  sudo vipw( have pre-saving check and validator)
+sudo cat /etc/groups => List out all the currently logged in user's groups and sudo vi /etc/groups === sudo vigr
+id -gn => Primary group currently logged in user
+
+
+sudo userdel <username>
+sudo groupdel <username>
+sudo deluser <user_name> <group_name>
+
+
+Conclusion - 
+
+Add user => adduser
+Delete user => deluser
+
+Change user1 password => passwd user1
+Change/Create root password => passwd
+
+Login as imsmad => su imsamad
+Login as root => su
+
+Kill session su -k
+
+Create group
+Delete group
+Add user to group
+
+List out Users
+List out Groups
+
+chmod <u,g,o><+r,-r,+w,-w,+x,-x,> file_name
+chmod -R <u,g,o><+r,-r,+w,-w,+x,-x,> dir_name
+
+chown
+
+chgrp
+
+

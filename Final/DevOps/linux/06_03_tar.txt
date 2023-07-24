@@ -1,0 +1,21 @@
+Compress
+    tar c[z|j]vf newDirName.tar.gz dirName
+
+Read
+    tar t[z|j]vf newDirName.tar.gz dirName
+
+Decompressed
+    tar x[z|j]vf newDirName.tar.gz dirName
+
+/---------------------------------------------------------------------------------------------------------------/
+
+p => Permissions
+
+
+c => Compress
+t => read
+x => Expand
+p => Preserve Permissions
+
+j => bzip2
+z => gzip
