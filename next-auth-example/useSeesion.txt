@@ -1,0 +1,22 @@
+const { data, session, status }= useSession({
+    required: true,
+    onUnauthenticated() {
+        
+    },
+
+})
+
+data 
+    - undefined - when the session hasn't been fetched yet, data will be undefined
+    - in case it failed to retrieve the session, data will be null
+    - in case of success, data will be Session.
+status 
+    - enum mapping to three possible values: "loading" | "authenticated" | "unauthenticated"
+const {
+  user: {
+    name: string
+    email: string
+    image: string
+  },
+  expires: Date // This is the expiry of the session, not any of the tokens within the session
+} = data

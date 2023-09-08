@@ -1,66 +1,111 @@
-import NextAuth, { NextAuthOptions } from 'next-auth';
-import GoogleProvider from 'next-auth/providers/google';
-import CredentialsProvider from 'next-auth/providers/credentials';
+import NextAuth, { NextAuthOptions } from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
+import { MongoDBAdapter } from "@auth/mongodb-adapter";
+// import CredentialsProvider from "next-auth/providers/credentials";
+import { URL } from "url";
+import clientPromise from "../../../lib/mongodb";
 
+import { verify } from "crypto";
+import jwt from "jsonwebtoken";
+import { JWT } from "next-auth/jwt";
 const show = !false;
 
 export const authOptions: NextAuthOptions = {
+  // @ts-ignore
+  adapter: MongoDBAdapter(clientPromise),
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
-    // CredentialsProvider({
-    //   name: 'Credentials',
-    //   credentials: {
-    //     username: { label: 'Username', type: 'text', placeholder: 'jsmith' },
-    //     password: { label: 'Password', type: 'password' },
-    //   },
-    //   // @ts-ignore
-    //   async authorize(credentials, req) {
-    //     console.log(credentials);
-    //     // Return null if user data could not be retrieved
-    //     return { name: 'abduss Samd ', credentials: 'credentials' };
-    //   },
-    // }),
   ],
+
   theme: {
-    colorScheme: 'light',
+    colorScheme: "light",
   },
-  // secret: process.env.NEXTAUTH_SECRET,
+
+  secret: "secret",
+
+  session: { strategy: "jwt" },
+
+  jwt: {
+    secret: "secret",
+    maxAge: 30 * 24 * 30 * 60,
+    // @ts-ignore
+    async encode(params: {
+      token: JWT;
+      secret: string;
+      maxAge: number;
+    }): Promise<string> {
+      console.log("hello from jwt encode");
+      return jwt.sign(params.token, params.secret);
+    },
+    // @ts-ignore
+    async decode(params: {
+      token: string;
+      secret: string;
+    }): Promise<JWT | null> {
+      console.log("hello from jwt decode");
+      try {
+        // @ts-ignore
+        return jwt.verify(params.token, params.secret);
+      } catch (err) {
+        console.log("err from decode jwt ", err);
+        return null;
+      }
+    },
+  },
   callbacks: {
     async redirect(props) {
       //  It is called if not signin
-      console.log('0.0 redirect');
-      if (show) console.log(props);
+      console.log("0.0 redirect");
+      // if (show) console.log(props);
       const { url, baseUrl } = props;
-      if (url.startsWith('/')) return `${baseUrl}${url}`;
-      if (new URL(url).origin === baseUrl) return url;
+      // for relative urls
+      if (url.startsWith("/")) {
+        console.log("):- redirect 1");
+        return `${baseUrl}${url}`;
+      }
+      let temp;
+      try {
+        temp = new URL(url);
+        console.log("):- redirect 2");
+        // console.log("temp ", temp);
+      } catch (err) {
+        console.log("):- redirect 3");
+
+        return baseUrl;
+      }
+
+      if (temp.origin === baseUrl) {
+        console.log("):- redirect 4");
+        return url;
+      }
       return baseUrl;
     },
 
     async signIn(props) {
       const { user, account, profile, email, credentials } = props;
-      console.log('0.1 signIn');
+      console.log("0.1 signIn");
       if (show) console.log(props);
       return true;
     },
 
     async jwt(props) {
       const { token, user, account, profile, isNewUser, trigger } = props;
-      console.log('2 jwt');
+      console.log("2 jwt");
       if (show) console.log(props);
 
-      token.userRole = 'admin';
-      token.addedFromJwt = 'addedFromJwt';
+      token.userRole = "admin";
+      token.addedFromJwt = "addedFromJwt";
       return token;
     },
 
     async session(props) {
       const { session, user, token } = props;
-      console.log('3 session');
+      console.log("3 session");
       if (show) console.log(props);
-      return { ...session, hello: 'helli' };
+      return { ...session, addedFromSessionCB: "addedFromSessionCB" };
     },
   },
 };
@@ -183,5 +228,4 @@ all data of sign_in passed down to jwt ={ ...signIn, isNewUser, token==signIn.us
 
 /*
 0 redirect  { url: 'http://localhost:3000/', baseUrl: 'http://localhost:3000' }
-
 */

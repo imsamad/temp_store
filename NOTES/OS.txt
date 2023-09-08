@@ -1,0 +1,13 @@
+- Operation Systems
+    - Scheduling
+        - Criterias
+        - Types
+    - Synchroisation
+        - Critical Section
+    - Deadlock
+        - 
+    - Main Memory
+        - Contiguous
+        - Non-Contiguous
+    - Storgae Mgmt
+    - File System

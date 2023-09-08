@@ -1,0 +1,9 @@
+Register - Showroom
+Cache Memory
+Main MEmory - Go Down
+Magnetic / Optical Disk - Plant / Factory
+
+Analogy - 
+Locality Of Refrence
+a.) Spatial Locality
+b.) Temporal Locality

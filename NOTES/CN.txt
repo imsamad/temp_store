@@ -1,0 +1,86 @@
+- Computer Network
+
+- Application Layer
+    - Email Protocol
+        - SMTP
+        - PQP
+        - IMAP
+    - Host Config
+        - DHCP
+        - BOOTP
+    - Name System
+        - DHCP
+    - File Transfer
+        - FTP
+        - TFTP
+    - Web
+        - HTTPS 
+
+- Tpt Layer
+    - TCP
+        - Connection-oriented (Logical Connection)(3-way handshake)
+        - Reliable by confirmation of delivery
+        - Data is delivered in ordered
+        - Flow control - adjusts maximum transmission rate
+        - More overhead
+        - Security identical bcz as such no mechanism is involved
+        - If the acknowledgement has not reached the sender, it needs to resend that data.
+    - UDP
+        - Not Connection oriented
+        - No confirmation of delivery it put data on wire and hope for best. Fire and Forgot
+        - Data is may or may not delivered in ordered
+        - Flow control - It transmit as fast as it can
+        - Less Overhead
+        - Security identical bcz as such no mechanism is involved
+
+- Network Layer
+    -  Services
+        - Routing
+        - Logical Addressing
+    -  Protocols
+        - ARP
+        - DHCP
+        - IPv4
+        - IPv6
+        - ICMP
+        - NAT
+        - IGMP - Multicasting
+    -  Subnetting
+    -  Router Table    
+
+- Data Link Layer
+    - Physical Addressing
+        - 6 octets
+    - Framing
+        - Bit Approcach
+            - HDLC - High Level Data Link Control Protocol
+        - Byte Approach (Byte Stuffing with 01111110)
+            - BISYNC - Binary Synchronous Communication Protocol
+            - Point-to-Point - In LAN multiple protocol frames
+            - DDCMP - Digital Data Communication Message Protocol
+    - Flow Control
+        -  Simple
+            - Stop-and-wait protocol
+        - Sliding Window
+            -  Stop-and-wait ARQ protocol
+            -  Go-Back-N ARQ protocol
+            - Selective Repeat protocol
+    - Error Control
+        -   Error Detection
+            - Single Parity check
+            - 2-D parity check - Drawback 2-2 bits in same positions at different rows.
+            - Checksum
+            - CRC
+    - Access Control
+        - Random Access
+            -  Slotetd/Pure ALOHA
+            -  CSMA/CD
+            -  CSMA/CA
+        - Controlled Access
+            - Token
+            - Polling
+            - Selectiom
+        - Distributes Access
+            - FDMA
+            - TDMA
+            - CDMA

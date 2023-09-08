@@ -1,0 +1,171 @@
+DATATYPE;
+
+CREATE table;
+
+CONSTRAITS:
+    NOT NULL
+    CHECK
+    DEFAULT
+    UNIQUE
+    PRIMARY KEY AUTO_INCREMENT
+    FOREIGN KEY
+
+CREATE TABLE Student (
+    id INT NOT NULL AUTO_INCREMENT,
+    NAME VARCHAR(30) NOT NULL,
+    email VARCHAR(30) UNIQUE NOT NULL,
+    PRIMARY KEY(id),
+    dept VARCHAR(10) NOT NULL,
+    FOREIGN KEY(dept) REFERNCES CITY(id)    
+    course_id VARCHAR(10) NOT NULL,
+    FOREIGN KEY(course_id) REFERNCES Courses(id)    
+);
+
+INSERT multiple data;
+
+SELECT;
+WHERE - column_name followed with these then values
+    =
+    >
+    <
+    >=
+    <=
+    <>
+    IN / NOT IN
+    BETWEEN / NOT BETWEEN
+    LIKE / NOT LIKE (Wildcards) (BINARY for case sensitive, comes b4 col name)
+    REGEXP
+    IS NULL
+    IS NOT NULL
+AND / OR - concatenate multiple WHERE conditions;
+
+ORDER BY (ASC, DESC)
+DISTINCT - (used after select and b4 tab_name);
+AGGREGATE Function - SUM, COUNT, MAX, MIN, AVG
+
+LIMIT / OFFSET - 5, 10 ( ignore first 5 get me last inital 15);
+
+
+UPDATE - 
+UPDATE tab_name
+SET col_name = col_value
+WHERE id = 2;
+
+DELETE
+DELETE FROM tab_name
+WHERE id = 10;
+
+
+
+
+JOINS ( INNER, RIGHT, LEFT)
+    SELECT s.name AS Student , c.name AS City, cs.name AS Course
+    FROM Student s
+    <INNER | RIGHT | LEFT> JOIN City c 
+    ON p.city = c.id
+    <INNER | RIGHT | LEFT> JOIN Courses cs 
+    ON cs.course_id = c.id
+    WHERE .... ;  
+
+CROSS JOIN - (Many To Many)
+    SELECT s.name AS Student , c.name AS City
+    FROM Student s
+    CROSS JOIN City c;  
+
+GROUP BY - WHERE is used b4 WHERE
+    Students from each cities
+    SELECT c.name as City, COUNT(city) AS Total 
+    FROM Student s
+    JOIN s.city = c.id
+    WHERE age >= 10
+    GROUP BY city
+    HAVING COUNT(s.city) > 3 ;
+
+HAVING 
+    Used on records extracted from GROUP BY clause
+
+SubQuery 
+    SELECT * FROM student s
+    WHERE city IN (SELECT id FROM City WHERE name IN ("agre", "bhopal"))
+
+EXISTS / NOT EXIST
+    SELECT * FROM student s WHERE EXISTS(SELECT id FROM City WHERE name IN ("agre", "bhopal"))
+
+UNION / UNION ALL
+    SELECT col1, col2 FROM tab1
+    UNION/ UNION ALL
+    SELECT col1, col2 FROM tab2;
+All cols must be identical in terms of data type
+
+
+
+SELECT clause augmentation 
+ SELECT name, age, if(age<=18,"Eligibale","Not Eligibale") As Acceptance FROM students;
+
+Case 
+    SELECT name, age, 
+    CASE 
+        WHEN age >0 AND age <10 THEN "CHILD"
+        ELSE "HELLO"
+    END as Acceptance
+    FROM students;
+
+    UPDATE students
+    SET name = (
+        CASE 
+            WHEN id == 0 THEN "CHILD"
+            WHEN id == 10 THEN "CHILD 10"
+            ELSE "HELLO"
+        END 
+    )
+    WHERE id IN (0, 10);
+
+ALTER existing table
+    ALTER TABLE students
+    Columns related - 
+        0.) Add column
+            ADD col_name VARCHAR(50) NOT NULL UNIQUE
+        a.) Name change
+            CHANGE col_name col_new_name VARCHAR(50) NOT NULL UNIQUE
+        b.) Data type change
+            MODIFY col_name VARCHAR(200)
+        c.) CONSTRAITS change
+
+        d.) Delete column
+            DROP col_name DATATYPE
+        e.) Re-ordering column
+            MODIFY email VARCHAR(255)
+            AFTER id;
+    Rename Table
+        RENAME new_table_name
+
+<<<<<<<<<<<<< EVERY id START with 4 /* ALTER TABLE students AUTO_INCREMENT = 4; */ >>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+DROP TABLE table; Completely wipe out table from DB
+TRUNCATE TABLE table_name: wipe of inner data of table but structure will remain as it is.
+
+
+
+VIEW
+    - CREATE
+    - ALTER
+    - CREATE OR REPLACE
+
+<CREATE> VIEW studentdata
+AS
+SELECT name FROM students;
+
+
+TO run it - 
+    SELECT * FROM studentdata
+
+
+
+INDEX
+    To make searching fast
+    !!Index Columns that are used for joins to improve join performances
+
+CREATE INDEX index_name
+TABLE_NAME(col1_name, col2_name, ............, colN_name);
